@@ -34,7 +34,11 @@ if (!$fbme) {
   // $fbme is valid i.e. user can access our app
 $user_id = $fbme[id];
 
+
+// Get user's checkins
 $checkins 	= $facebook->api('/me/checkins');
+
+// Get user's likes
 $likes		= $facebook->api('/me/likes'); 
 
 
@@ -52,7 +56,6 @@ echo('<p>The last thing you liked was '.$likes['data']['0']['name'].'</p>');
 
 //Echo User's last checkin
 echo('<p>The last place you checked in at was '.$checkins['data']['0']['place']['name'].' which was at '.$checkins['data']['0']['created_time'].'</p>');
-
 
 }      
 
