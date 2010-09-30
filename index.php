@@ -54,8 +54,19 @@ echo('<p>Your user ID is '.$user_id.'</p>');
 echo('<p>The last thing you liked was '.$likes['data']['0']['name'].'</p>');
 
 
-//Echo User's last checkin
+// Verify if a user has checked in & if they have, display details.
+
+if(empty($checkins['data'])) //Is checkin data array empty?
+{
+
+echo('<p>You\'ve never used Facebook Places');
+
+}
+else
+{
 echo('<p>The last place you checked in at was '.$checkins['data']['0']['place']['name'].' which was at '.$checkins['data']['0']['created_time'].'</p>');
+}
+
 
 }      
 
