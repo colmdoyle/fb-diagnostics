@@ -67,6 +67,28 @@ else
 echo('<p>The last place you checked in at was '.$checkins['data']['0']['place']['name'].' which was at '.$checkins['data']['0']['created_time'].'</p>');
 }
 
+$message = '';
+
+
+$wallpost = array(
+'access_token' => $facebook->getAccessToken(),
+'message' => $message, // this should be an empty string
+);
+
+try
+{
+$resp = $facebook->api('/me/feed', 'POST', $wallpost);
+return $resp;
+}
+catch(Exception $e)
+{
+$error = $e->getResult();
+echo('oh noes!'.$error.' '.$resp);
+
+return false;
+}
+
+
 
 }      
 
