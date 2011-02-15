@@ -2,6 +2,12 @@
 <?php
 include('config.php');
 
+?>
+
+<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=<?php echo $appid; ?>&amp;xfbml=1"></script><fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
+
+<?php 
+
 function parse_signed_request($signed_request, $secret) {
   list($encoded_sig, $payload) = explode('.', $signed_request, 2); 
 
@@ -28,7 +34,9 @@ function base64_url_decode($input) {
   return base64_decode(strtr($input, '-_', '+/'));
 }
 
-
+echo("<pre>\n");
+print_r($_REQUEST['signed_request']);
+echo("</pre>\n");
 
 echo("<pre>\n");
 print_r(parse_signed_request($_REQUEST['signed_request'],$appsecret));
