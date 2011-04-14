@@ -3,7 +3,7 @@
 //Hello worldo
 
 
-include('../php-sdk/src/facebook.php');
+include('../../php-sdk/src/facebook.php');
 include('config.php');
 include('readSignedRequest.php');
 
