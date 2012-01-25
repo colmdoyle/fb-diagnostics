@@ -11,17 +11,17 @@ $facebook = new Facebook(array(
                 'appId'  => $appid,
                 'secret' => $appsecret,
                 'cookie' => true,));
-                
 
-$session = $facebook->getSession();
-$fbme = null;  
-if ($session) {  
-    try {  
-        $fbme = $facebook->api('/me');  
+
+$user = $facebook->getUser();
+
+if ($user) {
+    try {
+        $fbme = $facebook->api('/me');
     } catch (FacebookApiException $e) {
 		error_log($e);
-    }  
-}        
+    }
+}
 
 
 
@@ -43,7 +43,7 @@ $user_id = $fbme[id];
 $checkins 	= $facebook->api('/me/checkins');
 
 // Get user's likes
-$likes		= $facebook->api('/me/likes'); 
+$likes		= $facebook->api('/me/likes');
 
 
 //Echo User's Name
@@ -72,7 +72,8 @@ echo('<p>The last place you checked in at was '.$checkins['data']['0']['place'][
 }
 
 
-}      
+
+}
 
 
 ?>

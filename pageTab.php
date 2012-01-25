@@ -4,12 +4,12 @@ include('config.php');
 
 ?>
 
-<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=<?php echo $appid; ?>&amp;xfbml=1"></script><fb:login-button show-faces="true" width="200" max-rows="1" perms="email, publish_stream,manage_pages"></fb:login-button>
+<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=<?php echo $appid; ?>&amp;xfbml=1"></script><fb:login-button show-faces="true" width="200" max-rows="1" perms="email, publish_stream,manage_pages, offline_access"></fb:login-button>
 
-<?php 
+<?php
 
 function parse_signed_request($signed_request, $secret) {
-  list($encoded_sig, $payload) = explode('.', $signed_request, 2); 
+  list($encoded_sig, $payload) = explode('.', $signed_request, 2);
 
   // decode the data
   $sig = base64_url_decode($encoded_sig);
