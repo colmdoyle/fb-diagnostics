@@ -1,79 +1,49 @@
+
+<?php
+include('config.php');
+
+?>
+<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=<?php echo $appid; ?>&amp;xfbml=1"></script><fb:login-button show-faces="true" width="200" max-rows="1" perms="email, publish_stream, publish_actions"></fb:login-button>
 <?php
 
-//Hello worldo
+function parse_signed_request($signed_request, $secret) {
+  list($encoded_sig, $payload) = explode('.', $signed_request, 2);
 
+  // decode the data
+  $sig = base64_url_decode($encoded_sig);
+  $data = json_decode(base64_url_decode($payload), true);
 
-include('../../php-sdk/src/facebook.php');
-include('config.php');
-include('readSignedRequest.php');
+  if (strtoupper($data['algorithm']) !== 'HMAC-SHA256') {
+    error_log('Unknown algorithm. Expected HMAC-SHA256');
+    return null;
+  }
 
-$facebook = new Facebook(array(
-                'appId'  => $appid,
-                'secret' => $appsecret,
-                'cookie' => true,));
+  // check sig
+  $expected_sig = hash_hmac('sha256', $payload, $secret, $raw = true);
+  if ($sig !== $expected_sig) {
+    error_log('Bad Signed JSON signature!');
+    return null;
+  }
 
-
-$user = $facebook->getUser();
-
-if ($user) {
-    try {
-        $fbme = $facebook->api('/me');
-    } catch (FacebookApiException $e) {
-		error_log($e);
-    }
+  return $data;
 }
 
-
-
-if (!$fbme) {
- $loginUrl = $facebook->getLoginUrl(array('canvas' => 1,
-                                          'fbconnect' => 0,
-                                          'req_perms' => 'publish_stream,user_checkins,friends_checkins,email,user_status,user_likes,read_stream',
-                                          'next' => $canvas_base_url . 'index.php',
-                                          'cancel_url' => $canvas_base_url
-                                         ));
-     echo "<script type='text/javascript'>top.location.href = '$loginUrl';</script>";
-} else {
-
-  // $fbme is valid i.e. user can access our app
-$user_id = $fbme[id];
-
-
-// Get user's checkins
-$checkins 	= $facebook->api('/me/checkins');
-
-// Get user's likes
-$likes		= $facebook->api('/me/likes');
-
-
-//Echo User's Name
-echo('<p>Oh hi '.$fbme[name].'</p>');
-
-
-//Echo User's UID
-echo('<p>Your user ID is '.$user_id.'</p>');
-
-
-//Echo User's last 'like'
-echo('<p>The last thing you liked was '.$likes['data']['0']['name'].'</p>');
-
-
-// Verify if a user has checked in & if they have, display details.
-
-if(empty($checkins['data'])) //Is checkin data array empty?
-{
-
-echo('<p>You\'ve never used Facebook Places');
-
-}
-else
-{
-echo('<p>The last place you checked in at was '.$checkins['data']['0']['place']['name'].' which was at '.$checkins['data']['0']['created_time'].'</p>');
+function base64_url_decode($input) {
+  return base64_decode(strtr($input, '-_', '+/'));
 }
 
+$fb_sr = parse_signed_request($_REQUEST['signed_request'], $appsecret);
 
+echo("<pre>\n");
+print_r(parse_signed_request($_REQUEST['signed_request'],$appsecret));
+echo("</pre>\n");
+echo(file_get_contents("https://graph.facebook.com/me/permissions?access_token=". $fb_sr['oauth_token']));
 
-}
+//echo("<pre>\n");
+//print_r($_REQUEST['signed_request']);
+//echo("</pre>\n");
 
-
+//echo("<pre>\n");
+//print_r(parse_signed_request($_REQUEST['signed_request'],$appsecret));
+//echo("</pre>\n");
 ?>

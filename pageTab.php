@@ -3,9 +3,7 @@
 include('config.php');
 
 ?>
-
-<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=<?php echo $appid; ?>&amp;xfbml=1"></script><fb:login-button show-faces="true" width="200" max-rows="1" perms="email, publish_stream,manage_pages, offline_access"></fb:login-button>
-
+<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=<?php echo $appid; ?>&amp;xfbml=1"></script><fb:login-button show-faces="true" width="200" max-rows="1" perms="email, publish_stream, publish_actions"></fb:login-button>
 <?php
 
 function parse_signed_request($signed_request, $secret) {
@@ -34,11 +32,26 @@ function base64_url_decode($input) {
   return base64_decode(strtr($input, '-_', '+/'));
 }
 
-echo("<pre>\n");
-print_r($_REQUEST['signed_request']);
-echo("</pre>\n");
+$fb_sr = parse_signed_request($_REQUEST['signed_request'], $appsecret);
 
+if(!$fb_sr['page']['liked'])
+{
+  echo('<img src="yuno.jpg" alt="y u no fan?"/>');
+}
+else
+{
+  echo 'you are a fan';
 echo("<pre>\n");
 print_r(parse_signed_request($_REQUEST['signed_request'],$appsecret));
 echo("</pre>\n");
+echo(file_get_contents("https://graph.facebook.com/me/permissions?access_token=". $fb_sr['oauth_token']));
+}
+
+//echo("<pre>\n");
+//print_r($_REQUEST['signed_request']);
+//echo("</pre>\n");
+
+//echo("<pre>\n");
+//print_r(parse_signed_request($_REQUEST['signed_request'],$appsecret));
+//echo("</pre>\n");
 ?>
