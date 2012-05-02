@@ -1,12 +1,10 @@
 <?php
 
-// Title 		: File to read a FB encoded Signed Request
-// Created By	: Colm Doyle <colmdoyle@fb.com>
-// Created on 	: February 15, 2011 
+// A function to process Facebook Signed Requests
+// https://developers.facebook.com/docs/authentication/signed_request/
 
-include('config.php');
 function parse_signed_request($signed_request, $secret) {
-  list($encoded_sig, $payload) = explode('.', $signed_request, 2); 
+  list($encoded_sig, $payload) = explode('.', $signed_request, 2);
 
   // decode the data
   $sig = base64_url_decode($encoded_sig);
@@ -31,12 +29,6 @@ function base64_url_decode($input) {
   return base64_decode(strtr($input, '-_', '+/'));
 }
 
-echo("<pre>\n");
-print_r($_REQUEST['signed_request']);
-echo("</pre>\n");
-
-echo("<pre>\n");
-print_r(parse_signed_request($_REQUEST['signed_request'],$appsecret));
-echo("</pre>\n");
-
-?>
+function test($echo) {
+  return $echo;
+}

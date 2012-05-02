@@ -1,0 +1,9 @@
+<?php
+
+$config = array(
+  'AppId' => 'YOUR_APP_ID',
+  'AppSecret' => 'YOUR_APP_SECRET',
+  'CanvasUrl' => 'https://apps.facebook.com/<YOUR_NAMESPACE>',
+  'namespace' => 'YOUR_NAMESPACE',
+);
+
