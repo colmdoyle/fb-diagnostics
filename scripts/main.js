@@ -2,11 +2,12 @@ $(document).ready(function() {
 
     $('#publish_action_link').click(function() {
       var access_token_var = $('#oauth_token').text();
-      $.post("https://graph.facebook.com/me/colms-sandbox:test",
-        {
+      $.ajax({
+        url: "https://graph.facebook.com/me/colms-sandbox:test",
+        data : {
           access_token: access_token_var,
           testing_object: "http://colmd.fbdublin.com/colms-sandbox/objects/testing.php"
-        },
+        }}).done(
         function(data) {
         console.log(data);
           $("#action_response").text(data);
@@ -58,7 +59,8 @@ $(document).ready(function() {
       function authApp() {
         var obj = {
 method: 'oauth',
-        redirect_uri: 'https://apps.facebook.com/colms-sandbox'
+        redirect_uri: 'https://apps.facebook.com/colms-sandbox',
+        scope: 'publish_actions'
         };
       }
 
