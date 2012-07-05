@@ -45,6 +45,18 @@ function output_standard_head(
 
   return $output;
 }
+function output_header () {
+  $head = '<head>';
+  $head .= output_standard_head('Colm\'s Sandbox', 'website', 'http://colmd.fbdublin.com/colms-sandbox/index.php', 'https://fbcdn-photos-a.akamaihd.net/photos-ak-snc7/v85005/230/120999667956026/app_10_120999667956026_1011543027.gif', 'Colm\'s Sandbox', $config['AppId']);
+  $head .= '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>';
+  $head .= '<script src="scripts/main.js"></script>';
+  $head .= '<script src=\'https://connect.facebook.net/en_US/all.js\'></script>';
+  $head .= '<link rel="stylesheet" type="text/css" href="css/screen.css" />';
+  $head .= '<link rel="stylesheet" type="text/css" href="css/custom.css" />';
+  $head .= '</head>';
+
+  return $head;
+}
 
 function curl_call($url, $post = false) {
 

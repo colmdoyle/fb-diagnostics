@@ -26,14 +26,8 @@ $signed_request_array .= '</ul>';
   $signed_request_array .= '</li>';
 }
 $signed_request_array .= '</ul>';
-$head = '<head>';
-$head .= output_standard_head('Colm\'s Sandbox', 'website', 'http://colmd.fbdublin.com/colms-sandbox/index.php', 'https://fbcdn-photos-a.akamaihd.net/photos-ak-snc7/v85005/230/120999667956026/app_10_120999667956026_1011543027.gif', 'Colm\'s Sandbox', $config['AppId']);
-$head .= '<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>';
-$head .= '<script src="scripts/main.js"></script>';
-$head .= '<script src=\'https://connect.facebook.net/en_US/all.js\'></script>';
-$head .= '<link rel="stylesheet" type="text/css" href="css/screen.css" />';
-$head .= '<link rel="stylesheet" type="text/css" href="css/custom.css" />';
-$head .= '</head>';
+
+echo output_header();
 
 $fb_init .= '<div id=\'fb-root\'></div>';
 
