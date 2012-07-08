@@ -51,8 +51,9 @@ function output_header () {
   $head .= '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>';
   $head .= '<script src="scripts/main.js"></script>';
   $head .= '<script src=\'https://connect.facebook.net/en_US/all.js\'></script>';
-  $head .= '<link rel="stylesheet" type="text/css" href="css/screen.css" />';
-  $head .= '<link rel="stylesheet" type="text/css" href="css/custom.css" />';
+  $head .= '<link rel="stylesheet" type="text/css" href="https://colmd.fbdublin.com/colms-sandbox/css/cssreset-min.css">';
+  $head .= '<link rel="stylesheet" type="text/css" href="https://colmd.fbdublin.com/colms-sandbox/css/cssfonts-min.css">';
+  $head .= '<link rel="stylesheet" type="text/css" href="https://colmd.fbdublin.com/colms-sandbox/css/screen.css" />';
   $head .= '</head>';
 
   return $head;

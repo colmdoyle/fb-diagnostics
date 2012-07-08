@@ -1,9 +1,12 @@
 <?php
-
-include('master_include.php');
+include(__DIR__ . '/../includes/__init__.php');
 
 echo output_header();
+?>
 
+<body class="page-tab">
+
+<?php
 $signed_request = parse_signed_request($_REQUEST['signed_request'], $config['AppSecret']);
 $page_name = json_decode(curl_call('https://graph.facebook.com/'.$signed_request['page']['id']), true);
 echo '<p>Here\'s what we can tell about you, based on the signed_request from Facebook</p>';
@@ -43,3 +46,7 @@ echo ' which according to the Graph API is called <strong>'.$page_name['name'] .
 echo('<pre>');
 print_r($signed_request);
 echo('</pre>');
+
+?>
+
+</body>

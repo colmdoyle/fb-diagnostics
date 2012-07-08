@@ -1,6 +1,6 @@
 <?php
 
-include_once('../master_include.php');
+include_once('../includes/__init__.php');
 
 $login_button = '<fb:login-button scope="user_likes" show-faces="true" width="200" max-rows="1"></fb:login-button>';
 

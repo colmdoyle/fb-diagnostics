@@ -1,6 +1,6 @@
 <?php
 
-include('master_include.php');
+include('./includes/__init__.php');
 
 $signed_request = $_REQUEST['signed_request'];
 $parsed_request = parse_signed_request($signed_request, $config['AppSecret']);
