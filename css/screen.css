@@ -1,1 +1,22 @@
 .page-tab { width: 810px; }
+
+
+
+/* Basic Styles */
+
+/* Headers */
+h1 {font-size: 200%; font-weight: bold;}
+h2 {font-size: 175%;}
+h3 {font-size: 150%;}
+h4 {font-size: 125%;}
+
+/* Font Styling */
+.bold { font-weight : bold; }
+
+
+/* Alignment */
+.left {text-align: left;}
+.center {text-align: center;}
+.right {text-align: right;}
+
+/* TODO: Create 9 spans of 80px+10px right padding for the page tabs */
