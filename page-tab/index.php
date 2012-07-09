@@ -52,12 +52,21 @@ if ($signed_request['user_id']){
     $user_id = 'No user id provided';
 }
 
-
 ?>
 
 <body>
 <h1 class="center">Colm's Sandbox App</h1>
 <div id="signed_request_container" class="page-tab container">
+<?php
+if (!$_REQUEST['signed_request']) {
+	$warning = '<div class="page-tab span-9">';
+	$warning .= '<p class="alert box"> <span class="bold"> ERROR: </span> No signed_request </p>';
+	$warning .= '</div>';
+
+	echo $warning;
+}
+
+?>
     <div class="page-tab span-4">
         <h3> The signed_request </h3>
         <table>
