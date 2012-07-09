@@ -18,7 +18,7 @@ h4 {font-size: 1.25em;}
 /* A grid for full-width Facebook Page Tabs (810px) */
 .span-1, .span-2, .span-3, .span-4, .span-5, .span-6, .span-7, .span-8, .span-9 {float:left;margin-right:10px;}
 .last {margin-right: 0;}
-.page-tab.container {width: 810px; margin: 0 auto;}
+.page-tab.container {width: 810px; margin: 0 auto; overflow: auto;}
 .page-tab.span-1 {width: 80px;}
 .page-tab.span-2 {width: 170px;}
 .page-tab.span-3 {width: 260px;}
