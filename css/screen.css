@@ -1,22 +1,43 @@
-.page-tab { width: 810px; }
-
-
-
 /* Basic Styles */
 
 /* Headers */
-h1 {font-size: 200%; font-weight: bold;}
-h2 {font-size: 175%;}
-h3 {font-size: 150%;}
-h4 {font-size: 125%;}
+h1 {font-size: 3em; font-weight: bold;}
+h2 {font-size: 2em;}
+h3 {font-size: 1.5em;}
+h4 {font-size: 1.25em;}
 
 /* Font Styling */
-.bold { font-weight : bold; }
-
+.bold { font-weight: bold; }
+.italic {font-style: italic;}
 
 /* Alignment */
 .left {text-align: left;}
 .center {text-align: center;}
 .right {text-align: right;}
 
-/* TODO: Create 9 spans of 80px+10px right padding for the page tabs */
+/* A grid for full-width Facebook Page Tabs (810px) */
+.span-1, .span-2, .span-3, .span-4, .span-5, .span-6, .span-7, .span-8, .span-9 {float:left;margin-right:10px;}
+.last {margin-right: 0;}
+.page-tab.container {width: 810px; margin: 0 auto;}
+.page-tab.span-1 {width: 80px;}
+.page-tab.span-2 {width: 170px;}
+.page-tab.span-3 {width: 260px;}
+.page-tab.span-4 {width: 350px;}
+.page-tab.span-5 {width: 440px;}
+.page-tab.span-6 {width: 530px;}
+.page-tab.span-7 {width: 620px;}
+.page-tab.span-8 {width: 710px;}
+.page-tab.span-9 {width: 800px;}
+
+/* Dialogs */
+.box {padding: 10px; margin: 10px;}
+.alert {background-color:#ffebe8; border:1px solid #dd3c10;}
+.warning {background-color:#fff9d7; border:1px solid #e2c822;}
+
+/* Tables */
+table {margin-bottom:1.4em;width:100%;}
+th {font-weight:bold;}
+thead th {background:#c3d9ff;}
+th, td, caption {padding:4px 10px 4px 5px;}
+tbody tr:nth-child(even) td, tbody tr.even td {background:#e5ecf9;}
+tfoot {font-style:italic;}
