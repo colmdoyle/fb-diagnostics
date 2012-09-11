@@ -146,6 +146,8 @@ print_r($signed_request);
 echo('</pre>');
 
 ?>
+<br />
+	<p> This code is available on <a href="<?php echo $config['github-url'];?>" target="_blank">Github</a></p>
 </div>
 
 </body>
