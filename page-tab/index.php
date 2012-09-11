@@ -89,7 +89,11 @@ if (!$_REQUEST['signed_request']) {
         <table>
             <tr>
                 <td> FB ID </td>
-                <td> <?php echo $signed_request['page']['id'];?> </td>
+								<td>
+								<a href="<?php echo $config['graph-explorer'].$signed_request['page']['id']?>" target="_blank">
+										<?php echo $signed_request['page']['id'];?>
+									</a>
+								</td>
             </tr>
             <tr>
                 <td> Page Name </td>
@@ -127,7 +131,10 @@ if (!$_REQUEST['signed_request']) {
             <table>
                 <tr>
                     <td>Token</td>
-                    <td><?php echo $token;?> </td>
+										<td>
+											<a href="<?php echo $config['fb-debug'].$token; ?>" target="_blank">
+											<?php echo $token;?></a>
+										</td>
                 </tr>
                 <tr>
                     <td>Expiries</td>
@@ -135,7 +142,11 @@ if (!$_REQUEST['signed_request']) {
                 </tr>
                 <tr>
                     <td>User ID</td>
-                    <td><?php echo $user_id . ' (' . $user_name['name'] . ')'; ?></td>
+										<td>
+											<a href="<?php echo $config['graph-explorer'].$user_id; ?>" target="_blank">
+												<?php echo $user_id; ?></a>
+										<?php echo ' (' . $user_name['name'] . ')'; ?>
+										</td>
                 </tr>
             </table>
     </div>
