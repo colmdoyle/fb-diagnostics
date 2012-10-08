@@ -55,7 +55,7 @@ if ($signed_request['user_id']){
 ?>
 
 <body>
-<h1 class="center">Colm's Sandbox App</h1>
+<h1 class="center"><?php echo $config['AppName']; ?></h1>
 <div id="signed_request_container" class="page-tab container">
 <?php
 if (!$_REQUEST['signed_request']) {

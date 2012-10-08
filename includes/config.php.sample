@@ -8,5 +8,6 @@ $config = array(
 	'github-url' => 'https://github.com/colmdoyle/colms-sandbox',
 	'graph-explorer' => 'https://developers.facebook.com/tools/explorer/?method=GET&path=',
 	'fb-debug' => 'https://developers.facebook.com/tools/debug?q=',
+	'AppName' => 'Your App Name',
 );
 
