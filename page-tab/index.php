@@ -55,6 +55,12 @@ if ($signed_request['user_id']){
 ?>
 
 <body>
+<script>
+<!-- TODO - Make this more dynamic -->
+if(self == top) {
+	window.location.replace("http://www.facebook.com/colmstestpage/app_120999667956026");
+}
+</script>
 <h1 class="center"><?php echo $config['AppName']; ?></h1>
 <div id="signed_request_container" class="page-tab container">
 <?php

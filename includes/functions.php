@@ -47,7 +47,8 @@ function output_standard_head(
 }
 function output_header () {
   $head = '<head>';
-  $head .= output_standard_head('Colm\'s Sandbox', 'website', 'http://colmd.fbdublin.com/colms-sandbox/index.php', 'https://fbcdn-photos-a.akamaihd.net/photos-ak-snc7/v85005/230/120999667956026/app_10_120999667956026_1011543027.gif', 'Colm\'s Sandbox', $config['AppId']);
+	// TODO - This is clowny. Make it better.
+  $head .= output_standard_head('Colm\'s Sandbox', 'website', 'http://colmd.fbdublin.com/colms-sandbox/page-tab/index.php', 'https://fbcdn-photos-a.akamaihd.net/photos-ak-snc7/v85005/230/120999667956026/app_10_120999667956026_1011543027.gif', 'Colm\'s Sandbox', '120999667956026');
   $head .= '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>';
   $head .= '<script src="scripts/main.js"></script>';
   $head .= '<script src=\'https://connect.facebook.net/en_US/all.js\'></script>';
