@@ -34,6 +34,12 @@ if ($signed_request['user']['age']['min'] >= 21) {
     $age_range = 'Unsure of age';
 }
 
+if ($signed_request['app_data']) {
+	$app_data = htmlspecialchars($signed_request['app_data']);
+} else {
+	$app_data = 'No app_data supplied';
+}
+
 if ($signed_request['oauth_token']) {
     $token = $signed_request['oauth_token'];
 } else {
@@ -85,8 +91,8 @@ if (!$_REQUEST['signed_request']) {
                 <td><?php echo $signed_request['issued_at'];?></td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td>App Data</td>
+								<td><?php echo $app_data; ?></td>
             </tr>
         </table>
     </div>
