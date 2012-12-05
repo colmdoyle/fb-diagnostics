@@ -142,81 +142,8 @@ if(self == top) {
 	                </td>
 	                <td><?php echo $signed_request['issued_at'];?></td>
 	            </tr>
-	            <tr>
-	                <td>
-	                	<span 
-	                		rel="popover" 
-	                		data-title="app_data"
-	                		data-content="A JSON string containing the content of the app_data query string parameter which may be passed if the app is being loaded within a Page Tab" 
-	                		data-trigger="hover">
-	                		App Data
-	                	</span>
-	                </td>
-									<td><?php echo $app_data; ?></td>
-	            </tr>
 	        </table>
 	    </div>
-	    <div class="span6">
-	        <h3> The Page you're on </h3>
-	        <table>
-	            <tr>
-	                <td>
-	                	<span
-	                		rel="popover"
-	                		data-title="['page']['id']"
-		                	data-content="A string containing the id of the page that loaded the app"
-			                data-trigger="hover">
-			                FB ID
-			               </span>
-			            </td>
-									<td>
-									<a 
-										href="<?php echo $config['graph-explorer'].$signed_request['page']['id']?>"
-										target="_blank">
-											<?php echo $signed_request['page']['id'];?>
-										</a>
-									</td>
-	            </tr>
-	            <tr>
-	                <td> 	                	
-	                	<span 
-	                		rel="popover" 
-	                		data-title="['page']['name']"
-	                		data-content="A string containing the name of the page that loaded the app" 
-	                		data-trigger="hover">
-		                		Page Name 
-	                	</span>
-	                </td>
-	                <td> <?php echo $page_name['name']; ?> </td>
-	            </tr>
-	            <tr>
-	                <td> 
-	                	<span 
-	                		rel="popover" 
-	                		data-title="['page']['liked']"
-	                		data-content="A boolean of whether the current user likers the page that loaded the app" 
-	                		data-trigger="hover">
-		                		Do you like?
-	                	</span>
-	                </td>
-	                <td> <?php echo $like_status; ?> </td>
-	            </tr>
-	            <tr>
-	                <td>
- 	                	<span 
-	                		rel="popover" 
-	                		data-title="['page']['admin']"
-	                		data-content="A boolean of whether the current user admins the page that loaded the app" 
-	                		data-trigger="hover">
-		                		Are you an admin?
- 	                	</span>
- 	                </td>
-	                <td> <?php echo $admin_status; ?> </td>
-	            </tr>
-	        </table>
-	    </div>
-	</div>
-	<div class="row-fluid">
 	    <div class="span6">
 	        <h3> The User </h3>
 	            <table>
@@ -258,7 +185,9 @@ if(self == top) {
 	                </tr>
 	            </table>
 	    </div>
-	    <div class="span6">
+	</div>
+	<div class="row-fluid">
+	    <div class="span12">
 	        <h3> oAuth info </h3>
 	            <table>
 	                <tr>
