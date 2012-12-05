@@ -48,8 +48,12 @@ if ($signed_request['oauth_token']) {
 
 if ($signed_request['expires']){
     $token_expiry = $signed_request['expires'];
+    if (is_int($signed_request['expires'])) {
+	    $token_expiry_human = '(' .date("M j Y, Hi e", $signed_request['expires']). ')';
+    }
 } else {
     $token_expiry = 'No expiry time provided';
+    $token_expiry_human = '';
 }
 
 if ($signed_request['user_id']){
@@ -286,7 +290,7 @@ if(self == top) {
 	                    		Expires
 	                    	</span>
 	                    </td>
-	                    <td><?php echo $token_expiry;?> </td>
+	                    <td><?php echo $token_expiry .' '. $token_expiry_human;?> </td>
 	                </tr>
 	                <tr>
 	                    <td>
