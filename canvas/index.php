@@ -104,7 +104,7 @@ if(self == top) {
 	if (!$_REQUEST['signed_request']) {
 	?>
 	<div class="alert alert-error">
-	  <button type="button" class="close" data-dismiss="alert">×</button>
+	  <button type="button" class="close" data-dismiss="alert">Ã—</button>
 	  <h4>Warning!</h4>
 	  There was no signed_request in the POST.
 	</div>
@@ -294,7 +294,7 @@ if(self == top) {
 	                    		data-title="user_id"
 	                    		data-content="A JSON string containing the User ID of the current user."
 	                    		data-trigger="hover">
-	                    		User ID
+	                    			User ID
 	                    	</span>
 	                    </td>
 											<td>
