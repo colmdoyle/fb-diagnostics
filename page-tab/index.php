@@ -91,19 +91,40 @@ if ($signed_request['user_id']){
      js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
      ref.parentNode.insertBefore(js, ref);
    }(document, /*debug*/ false));
-</script>
-<script type="text/javascript">
-     $(document).ready(function () {
-     if ($("[rel=popover]").length) {
-     $("[rel=popover]").popover();
-     }
-   });<!-- TODO - Make this more dynamic -->
+<!-- TODO - Make this more dynamic -->
 if(self == top) {
-	//window.location.replace("http://www.facebook.com/colmstestpage/app_120999667956026");
+	window.location.replace("http://www.facebook.com/colmstestpage/app_120999667956026");
 }
 </script>
 <a href="https://github.com/colmdoyle/colms-sandbox" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
 <div class="container-fluid" id="content">
+<div class="btn-toolbar">
+	<div class="btn-group">
+	  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+	    Dialogs
+	    <span class="caret"></span>
+	  </a>
+	  <ul class="dropdown-menu">
+	    <li><a tabindex="-1" href="#" id="add_page_tab">Add Page Tab</a></li>
+	    <li><a tabindex="-1" href="#" id="feed_dialog">Feed</a></li>
+	    <li><a tabindex="-1" href="#">Friends</a></li>
+	    <li><a tabindex="-1" href="#">OAuth</a></li>
+	    <li><a tabindex="-1" href="#">Pay</a></li>
+	    <li><a tabindex="-1" href="#">Requests</a></li>
+	    <li><a tabindex="-1" href="#">Send</a></li>
+	  </ul>
+	</div>
+	<div class="btn-group">
+	  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+	    Publishing
+	    <span class="caret"></span>
+	  </a>
+	  <ul class="dropdown-menu">
+	    <li><a tabindex="-1" href="#">Post to Wall</a></li>
+	    <li><a tabindex="-1" href="#">Publish an Action</a></li>
+	  </ul>
+	</div>
+</div>
 	<div class="page-header">
 	<?php
 	if (!$_REQUEST['signed_request']) {

@@ -93,11 +93,7 @@ if ($signed_request['user_id']){
    }(document, /*debug*/ false));
 </script>
 <script type="text/javascript">
-     $(document).ready(function () {
-     if ($("[rel=popover]").length) {
-     $("[rel=popover]").popover();
-     }
-   });<!-- TODO - Make this more dynamic -->
+<!-- TODO - Make this more dynamic -->
 if(self == top) {
 	//window.location.replace("http://www.facebook.com/colmstestpage/app_120999667956026");
 }

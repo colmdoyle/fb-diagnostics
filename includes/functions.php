@@ -54,6 +54,7 @@ function output_header () {
   $head .= '<link href="https://colmd.fbdublin.com/colms-sandbox/css/bootstrap.min.css" rel="stylesheet" media="screen">';
   $head .= '<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>';
   $head .= '<script src="https://colmd.fbdublin.com/colms-sandbox/js/bootstrap.min.js"></script>';
+  $head .= '<script src="https://colmd.fbdublin.com/colms-sandbox/js/main.js"></script>';
   $head .= '<link rel="stylesheet" type="text/css" href="https://colmd.fbdublin.com/colms-sandbox/css/screen.css" />';
 
   $head .= '</head>';
