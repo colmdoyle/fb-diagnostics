@@ -10,15 +10,15 @@ $user_name = json_decode(curl_call('https://graph.facebook.com/'.$signed_request
 // Does the viewing user like the page?
 
 if ($signed_request['page']['liked']) {
-  $like_status = 'Yes';
+  $like_status = '<span class="label label-success">Yes</span>';
 } else {
-  $like_status = 'No';
+  $like_status = '<span class="label label-important">No</span>';
 }
 // is the viewing user an admin?
 if ($signed_request['page']['admin']) {
-  $admin_status = 'Yes';
+  $admin_status = '<span class="label label-success">Yes</span>';
 } else {
-  $admin_status = 'No';
+  $admin_status = '<span class="label label-important">No</span>';
 }
 
 // what age is the viewing user
@@ -77,7 +77,7 @@ if ($signed_request['user_id']){
       xfbml      : true  // parse XFBML tags on this page?
     });
 
-    FB.Canvas.setAutoGrow();
+    FB.Canvas.setSize();
   };
 
   // Load the SDK's source Asynchronously
@@ -96,8 +96,8 @@ if(self == top) {
 	window.location.replace("http://www.facebook.com/colmstestpage/app_120999667956026");
 }
 </script>
-<a href="https://github.com/colmdoyle/colms-sandbox" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
 <div class="container-fluid" id="content">
+<div id="alert-container"></div>
 <div class="btn-toolbar">
 	<div class="btn-group">
 	  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
@@ -107,11 +107,8 @@ if(self == top) {
 	  <ul class="dropdown-menu">
 	    <li><a tabindex="-1" href="#" id="add_page_tab">Add Page Tab</a></li>
 	    <li><a tabindex="-1" href="#" id="feed_dialog">Feed</a></li>
-	    <li><a tabindex="-1" href="#">Friends</a></li>
-	    <li><a tabindex="-1" href="#">OAuth</a></li>
-	    <li><a tabindex="-1" href="#">Pay</a></li>
-	    <li><a tabindex="-1" href="#">Requests</a></li>
-	    <li><a tabindex="-1" href="#">Send</a></li>
+	    <li><a tabindex="-1" href="#" id="send_dialog">Send</a></li>
+	    <li><a tabindex="-1" href="#" id="oauth_dialog">OAuth</a></li>
 	  </ul>
 	</div>
 	<div class="btn-group">
@@ -120,8 +117,8 @@ if(self == top) {
 	    <span class="caret"></span>
 	  </a>
 	  <ul class="dropdown-menu">
-	    <li><a tabindex="-1" href="#">Post to Wall</a></li>
-	    <li><a tabindex="-1" href="#">Publish an Action</a></li>
+	    <li><a tabindex="-1" href="#myModal" data-toggle="modal" id="feed_publish">Post to Wall</a></li>
+	    <li><a tabindex="-1" href="#" id="publish_action">Publish an Action</a></li>
 	  </ul>
 	</div>
 </div>
@@ -342,5 +339,21 @@ if(self == top) {
  	<hr />
  	<p class="alert alert-info"> This code is available on <a href="<?php echo $config['github-url'];?>" target="_blank">Github</a></p>
 </div>
-
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Post to Facebook</h3>
+  </div>
+  <div class="modal-body">
+  	<p> Enter the message you want to post in the field below </p>
+		<form class="form-inline">
+		  <input type="text" id="message_box_modal" placeholder="What's on your mind?">
+		</form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary" id="publish_submit">Post to Facebook</button>
+  </div>
+</div>
 </body>
