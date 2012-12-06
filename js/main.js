@@ -57,8 +57,10 @@ $(document).ready(function () {
 		function(response){
 			if (response.error) {
 				$('#alert-container').html('<div class="alert alert-error">'+ response.error + '<a class="close" data-dismiss="alert" href="#">&times;</a></div>');
+				console.log(response);
 			} else if (response.id) {
 				$('#alert-container').html('<div class="alert alert-success">'+ response.id + '<a class="close" data-dismiss="alert" href="#">&times;</a></div>');
+				$('#message_box_modal').val('');
 			} else {
 				$('#alert-container').html('<div class="alert alert-error"> An unknown error has occurred, check your console. <a class="close" data-dismiss="alert" href="#">&times;</a></div>');
 				console.log(response);

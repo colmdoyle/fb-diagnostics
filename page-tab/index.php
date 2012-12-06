@@ -77,7 +77,7 @@ if ($signed_request['user_id']){
       xfbml      : true  // parse XFBML tags on this page?
     });
 
-    FB.Canvas.setSize();
+    FB.Canvas.setAutoGrow();
   };
 
   // Load the SDK's source Asynchronously
