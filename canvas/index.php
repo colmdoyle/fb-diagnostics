@@ -67,8 +67,8 @@ if ($signed_request['user_id']){
   };
 
   // Load the SDK's source Asynchronously
-  // Note that the debug version is being actively developed and might 
-  // contain some type checks that are overly strict. 
+  // Note that the debug version is being actively developed and might
+  // contain some type checks that are overly strict.
   // Please report such bugs using the bugs tool.
   (function(d, debug){
      var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
@@ -106,10 +106,10 @@ if(self == top) {
 	        <table>
 	            <tr>
 	                <td>
-	                	<span 
-	                		rel="popover" 
+	                	<span
+	                		rel="popover"
 	                		data-title="algorithm"
-	                		data-content="A JSON string containing the mechanism used to sign the request" 
+	                		data-content="A JSON string containing the mechanism used to sign the request"
 	                		data-trigger="hover">
 	                		Encryption
 	                	</span>
@@ -118,10 +118,10 @@ if(self == top) {
 	            </tr>
 	            <tr>
 	                <td>
-	                	<span 
-	                		rel="popover" 
+	                	<span
+	                		rel="popover"
 	                		data-title="issued_at"
-	                		data-content="A JSON number containing the Unix timestamp when the request was signed" 
+	                		data-content="A JSON number containing the Unix timestamp when the request was signed"
 	                		data-trigger="hover">
 	                		Issue Time
 	                	</span>
@@ -135,10 +135,10 @@ if(self == top) {
 	            <table>
 	                <tr>
 	                    <td>
-	   	                	<span 
-		   	                	rel="popover" 
+	   	                	<span
+		   	                	rel="popover"
 			   	                data-title="['user']['country']"
-			   	                data-content="A string representing the country of the viewing user" 
+			   	                data-content="A string representing the country of the viewing user"
 				   	              data-trigger="hover">
 					   	            	Country
 	   	                	</span>
@@ -147,10 +147,10 @@ if(self == top) {
 	                </tr>
 	                <tr>
 	                    <td>
- 	   	                	<span 
-		   	                	rel="popover" 
+ 	   	                	<span
+		   	                	rel="popover"
 			   	                data-title="['user']['locale']"
-			   	                data-content="A string representing the locale of the viewing user" 
+			   	                data-content="A string representing the locale of the viewing user"
 				   	              data-trigger="hover">
 					   	              Locale
  	   	                	</span>
@@ -174,14 +174,14 @@ if(self == top) {
 	</div>
 	<div class="row-fluid">
 	    <div class="span12">
-	        <h3> oAuth info </h3>
+	        <h3> OAuth info </h3>
 	            <table>
 	                <tr>
 	                    <td>
- 	   	                	<span 
-		   	                	rel="popover" 
+ 	   	                	<span
+		   	                	rel="popover"
 			   	                data-title="oauth_token"
-			   	                data-content="A JSON string that can be used when making requests to the Graph API. This is also known as a user access token." 
+			   	                data-content="A JSON string that can be used when making requests to the Graph API. This is also known as a user access token."
 				   	              data-trigger="hover">
 					   	              Token
  	   	                	</span>
@@ -227,7 +227,7 @@ if(self == top) {
 	echo('<pre><code>');
 	print_r($signed_request);
 	echo('</code></pre>');
-	
+
 	?>
  	<hr />
  	<p class="alert alert-info"> This code is available on <a href="<?php echo $config['github-url'];?>" target="_blank">Github</a></p>
