@@ -125,6 +125,11 @@ if(self == top) {
 	    		<i class="icon-lock"></i> OAuth
 	    	</a>
 	    </li>
+	    <li>
+	    	<a tabindex="-1" href="#" id="requests_mfs_dialog">
+	    		<i class="icon-globe"></i> Requests MultiFriend
+	    	</a>
+	    </li>
 	  </ul>
 	</div>
 	<div class="btn-group">
@@ -163,7 +168,7 @@ if(self == top) {
 	<div class="row-fluid">
 	    <div class="span6">
 	        <h3> The signed_request </h3>
-	        <table>
+	        <table class="table table-bordered table-striped">
 	            <tr>
 	                <td>
 	                	<span 
@@ -204,7 +209,7 @@ if(self == top) {
 	    </div>
 	    <div class="span6">
 	        <h3> The Page you're on </h3>
-	        <table>
+	        <table class="table table-bordered table-striped">
 	            <tr>
 	                <td>
 	                	<span
@@ -265,7 +270,7 @@ if(self == top) {
 	<div class="row-fluid">
 	    <div class="span6">
 	        <h3> The User </h3>
-	            <table>
+	            <table class="table table-bordered table-striped">
 	                <tr>
 	                    <td>
 	   	                	<span 
@@ -306,7 +311,7 @@ if(self == top) {
 	    </div>
 	    <div class="span6">
 	        <h3> oAuth info </h3>
-	            <table>
+	            <table class="table table-bordered table-striped">
 	                <tr>
 	                    <td>
  	   	                	<span 

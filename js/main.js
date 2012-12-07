@@ -21,6 +21,14 @@ $(document).ready(function () {
 		});
 	});
 	
+	$('#requests_mfs_dialog').click(function(){
+		FB.ui({method: 'apprequests', message: 'You should see this test app'}, 
+		function(response) {
+			console.log(response);
+			$('#alert-container').html('<div class="alert alert-success"><p><strong>Request ID: </strong>'+ response.request +'</p><p><strong>Recipients: </strong>' + response.to + '</p><a class="close" data-dismiss="alert" href="#">&times;</a></div>');
+		});
+	});
+	
 	$('#feed_dialog').click(function(){
 		FB.ui({
 		method: 'feed', 
