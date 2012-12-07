@@ -7,20 +7,6 @@ $signed_request = parse_signed_request($_REQUEST['signed_request'], $config['App
 $page_name = json_decode(curl_call('https://graph.facebook.com/'.$signed_request['page']['id']), true);
 $user_name = json_decode(curl_call('https://graph.facebook.com/'.$signed_request['user_id']), true);
 
-// Does the viewing user like the page?
-
-if ($signed_request['page']['liked']) {
-  $like_status = 'Yes';
-} else {
-  $like_status = 'No';
-}
-// is the viewing user an admin?
-if ($signed_request['page']['admin']) {
-  $admin_status = 'Yes';
-} else {
-  $admin_status = 'No';
-}
-
 // what age is the viewing user
 if ($signed_request['user']['age']['min'] >= 21) {
     $age_range = 'User is over 21';

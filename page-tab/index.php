@@ -186,7 +186,7 @@ if(self == top) {
 	                	<span
 	                		rel="popover"
 	                		data-title="['page']['id']"
-		                	data-content="A string containing the id of the page that loaded the app"
+		                	data-content="A JSON string containing the id of the page that loaded the app"
 			                data-trigger="hover">
 			                FB ID
 			               </span>
@@ -204,7 +204,7 @@ if(self == top) {
 	                	<span 
 	                		rel="popover" 
 	                		data-title="['page']['name']"
-	                		data-content="A string containing the name of the page that loaded the app" 
+	                		data-content="A JSON string containing the name of the page that loaded the app" 
 	                		data-trigger="hover">
 		                		Page Name 
 	                	</span>
@@ -216,7 +216,7 @@ if(self == top) {
 	                	<span 
 	                		rel="popover" 
 	                		data-title="['page']['liked']"
-	                		data-content="A boolean of whether the current user likers the page that loaded the app" 
+	                		data-content="A JSON boolean of whether the current user likes the page that loaded the app" 
 	                		data-trigger="hover">
 		                		Do you like?
 	                	</span>
@@ -228,7 +228,7 @@ if(self == top) {
  	                	<span 
 	                		rel="popover" 
 	                		data-title="['page']['admin']"
-	                		data-content="A boolean of whether the current user admins the page that loaded the app" 
+	                		data-content="A JSON boolean of whether the current user admins the page that loaded the app" 
 	                		data-trigger="hover">
 		                		Are you an admin?
  	                	</span>
@@ -247,7 +247,7 @@ if(self == top) {
 	   	                	<span 
 		   	                	rel="popover" 
 			   	                data-title="['user']['country']"
-			   	                data-content="A string representing the country of the viewing user" 
+			   	                data-content="A JSON string representing the country of the viewing user" 
 				   	              data-trigger="hover">
 					   	            	Country
 	   	                	</span>
@@ -259,7 +259,7 @@ if(self == top) {
  	   	                	<span 
 		   	                	rel="popover" 
 			   	                data-title="['user']['locale']"
-			   	                data-content="A string representing the locale of the viewing user" 
+			   	                data-content="A JSON string representing the locale of the viewing user" 
 				   	              data-trigger="hover">
 					   	              Locale
  	   	                	</span>
