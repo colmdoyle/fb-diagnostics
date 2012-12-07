@@ -4,6 +4,7 @@ $config = array(
   'AppId' => 'YOUR_APP_ID',
   'AppSecret' => 'YOUR_APP_SECRET',
   'CanvasUrl' => 'https://apps.facebook.com/<YOUR_NAMESPACE>',
+  'PageTabUrl' => 'https://www.facebook.com/<PAGE_NAME>/app_<APPID>',
   'namespace' => 'YOUR_NAMESPACE',
 	'github-url' => 'https://github.com/colmdoyle/colms-sandbox',
 	'graph-explorer' => 'https://developers.facebook.com/tools/explorer/?method=GET&path=',

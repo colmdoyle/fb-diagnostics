@@ -152,6 +152,24 @@ if(self == top) {
 	        </li>
 	      </ul>
 	    </li>
+	    <li class="dropdown">
+	    	<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+		      View On
+		      <span class="caret"></span>
+		    </a>
+	      <ul class="dropdown-menu">
+	        <li>
+	        	<a tabindex="-1" href="<?php echo $config['CanvasUrl']; ?>" target="_blank">
+	        		<i class="icon-th-large"></i> Canvas
+	        	</a>
+	        </li>
+	        <li>
+	        	<a tabindex="-1" href="<?php echo $config['PageTabUrl']; ?>" target="_blank">
+	        		<i class="icon-flag"></i> Page Tab
+	        	</a>
+	        </li>
+	      </ul>
+	    </li>
     </ul>
   </div>
 </div>
