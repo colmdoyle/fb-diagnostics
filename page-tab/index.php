@@ -105,10 +105,26 @@ if(self == top) {
 	    <span class="caret"></span>
 	  </a>
 	  <ul class="dropdown-menu">
-	    <li><a tabindex="-1" href="#" id="add_page_tab">Add Page Tab</a></li>
-	    <li><a tabindex="-1" href="#" id="feed_dialog">Feed</a></li>
-	    <li><a tabindex="-1" href="#" id="send_dialog">Send</a></li>
-	    <li><a tabindex="-1" href="#" id="oauth_dialog">OAuth</a></li>
+	    <li>
+	    	<a tabindex="-1" href="#" id="add_page_tab">
+	    		<i class="icon-plus"></i> Add Page Tab
+	    	</a>
+	    </li>
+	    <li>
+	    	<a tabindex="-1" href="#" id="feed_dialog">
+	    		<i class="icon-comment"></i> Feed
+	    	</a>
+	    </li>
+	    <li>
+	    	<a tabindex="-1" href="#" id="send_dialog">
+	    		<i class="icon-envelope"></i> Send
+	    	</a>
+	    </li>
+	    <li>
+	    	<a tabindex="-1" href="#" id="oauth_dialog">
+	    		<i class="icon-lock"></i> OAuth
+	    	</a>
+	    </li>
 	  </ul>
 	</div>
 	<div class="btn-group">
@@ -117,8 +133,16 @@ if(self == top) {
 	    <span class="caret"></span>
 	  </a>
 	  <ul class="dropdown-menu">
-	    <li><a tabindex="-1" href="#myModal" data-toggle="modal" id="feed_publish">Post to Wall</a></li>
-	    <li><a tabindex="-1" href="#" id="publish_action">Publish an Action</a></li>
+	    <li>
+	    	<a tabindex="-1" href="#myModal" data-toggle="modal" id="feed_publish">
+	    		<i class="icon-comment"></i> Post to Wall
+	    	</a>
+	    </li>
+	    <li>
+	    	<a tabindex="-1" href="#" id="publish_action">
+	    		<i class="icon-plus-sign"></i> Publish an Action
+	    	</a>
+	    </li>
 	  </ul>
 	</div>
 </div>
