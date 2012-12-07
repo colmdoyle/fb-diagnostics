@@ -81,8 +81,8 @@ if ($signed_request['user_id']){
   };
 
   // Load the SDK's source Asynchronously
-  // Note that the debug version is being actively developed and might
-  // contain some type checks that are overly strict.
+  // Note that the debug version is being actively developed and might 
+  // contain some type checks that are overly strict. 
   // Please report such bugs using the bugs tool.
   (function(d, debug){
      var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
@@ -97,61 +97,65 @@ if(self == top) {
 }
 </script>
 <div class="container-fluid" id="content">
-<div id="alert-container"></div>
-<div class="btn-toolbar">
-	<div class="btn-group">
-	  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-	    Dialogs
-	    <span class="caret"></span>
-	  </a>
-	  <ul class="dropdown-menu">
-	    <li>
-	    	<a tabindex="-1" href="#" id="add_page_tab">
-	    		<i class="icon-plus"></i> Add Page Tab
-	    	</a>
+<div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="#"><?php echo $config['AppName']; ?></a>
+    <ul class="nav">
+	    <li class="dropdown">
+	      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+	        Dialogs
+	        <span class="caret"></span>
+	      </a>
+	      <ul class="dropdown-menu">
+	        <li>
+	        	<a tabindex="-1" href="#" id="add_page_tab">
+	        		<i class="icon-plus"></i> Add Page Tab
+	        	</a>
+	        </li>
+	        <li>
+	        	<a tabindex="-1" href="#" id="feed_dialog">
+	        		<i class="icon-comment"></i> Feed
+	        	</a>
+	        </li>
+	        <li>
+	        	<a tabindex="-1" href="#" id="send_dialog">
+	        		<i class="icon-envelope"></i> Send
+	        	</a>
+	        </li>
+	        <li>
+	        	<a tabindex="-1" href="#" id="oauth_dialog">
+	        		<i class="icon-lock"></i> OAuth
+	        	</a>
+	        </li>
+	        <li>
+	        	<a tabindex="-1" href="#" id="requests_mfs_dialog">
+	        		<i class="icon-globe"></i> Requests MultiFriend
+	        	</a>
+	        </li>
+	      </ul>
 	    </li>
-	    <li>
-	    	<a tabindex="-1" href="#" id="feed_dialog">
-	    		<i class="icon-comment"></i> Feed
-	    	</a>
+	    <li class="dropdown">
+	    	<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+		      Publishing
+		      <span class="caret"></span>
+		    </a>
+	      <ul class="dropdown-menu">
+	        <li>
+	        	<a tabindex="-1" href="#myModal" data-toggle="modal" id="feed_publish">
+	        		<i class="icon-comment"></i> Post to Wall
+	        	</a>
+	        </li>
+	        <li>
+	        	<a tabindex="-1" href="#" id="publish_action">
+	        		<i class="icon-plus-sign"></i> Publish an Action
+	        	</a>
+	        </li>
+	      </ul>
 	    </li>
-	    <li>
-	    	<a tabindex="-1" href="#" id="send_dialog">
-	    		<i class="icon-envelope"></i> Send
-	    	</a>
-	    </li>
-	    <li>
-	    	<a tabindex="-1" href="#" id="oauth_dialog">
-	    		<i class="icon-lock"></i> OAuth
-	    	</a>
-	    </li>
-	    <li>
-	    	<a tabindex="-1" href="#" id="requests_mfs_dialog">
-	    		<i class="icon-globe"></i> Requests MultiFriend
-	    	</a>
-	    </li>
-	  </ul>
-	</div>
-	<div class="btn-group">
-	  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-	    Publishing
-	    <span class="caret"></span>
-	  </a>
-	  <ul class="dropdown-menu">
-	    <li>
-	    	<a tabindex="-1" href="#myModal" data-toggle="modal" id="feed_publish">
-	    		<i class="icon-comment"></i> Post to Wall
-	    	</a>
-	    </li>
-	    <li>
-	    	<a tabindex="-1" href="#" id="publish_action">
-	    		<i class="icon-plus-sign"></i> Publish an Action
-	    	</a>
-	    </li>
-	  </ul>
-	</div>
+    </ul>
+  </div>
 </div>
-	<div class="page-header">
+<div id="alert-container"></div>
 	<?php
 	if (!$_REQUEST['signed_request']) {
 	?>
@@ -163,18 +167,16 @@ if(self == top) {
 	<?php
 	}
 	?>
-		<h1><?php echo $config['AppName']; ?></h1>
-	</div>
 	<div class="row-fluid">
 	    <div class="span6">
 	        <h3> The signed_request </h3>
 	        <table class="table table-bordered table-striped">
 	            <tr>
 	                <td>
-	                	<span
-	                		rel="popover"
+	                	<span 
+	                		rel="popover" 
 	                		data-title="algorithm"
-	                		data-content="A JSON string containing the mechanism used to sign the request"
+	                		data-content="A JSON string containing the mechanism used to sign the request" 
 	                		data-trigger="hover">
 	                		Encryption
 	                	</span>
@@ -183,10 +185,10 @@ if(self == top) {
 	            </tr>
 	            <tr>
 	                <td>
-	                	<span
-	                		rel="popover"
+	                	<span 
+	                		rel="popover" 
 	                		data-title="issued_at"
-	                		data-content="A JSON number containing the Unix timestamp when the request was signed"
+	                		data-content="A JSON number containing the Unix timestamp when the request was signed" 
 	                		data-trigger="hover">
 	                		Issue Time
 	                	</span>
@@ -195,10 +197,10 @@ if(self == top) {
 	            </tr>
 	            <tr>
 	                <td>
-	                	<span
-	                		rel="popover"
+	                	<span 
+	                		rel="popover" 
 	                		data-title="app_data"
-	                		data-content="A JSON string containing the content of the app_data query string parameter which may be passed if the app is being loaded within a Page Tab"
+	                		data-content="A JSON string containing the content of the app_data query string parameter which may be passed if the app is being loaded within a Page Tab" 
 	                		data-trigger="hover">
 	                		App Data
 	                	</span>
@@ -221,7 +223,7 @@ if(self == top) {
 			               </span>
 			            </td>
 									<td>
-									<a
+									<a 
 										href="<?php echo $config['graph-explorer'].$signed_request['page']['id']?>"
 										target="_blank">
 											<?php echo $signed_request['page']['id'];?>
@@ -229,23 +231,23 @@ if(self == top) {
 									</td>
 	            </tr>
 	            <tr>
-	                <td>
-	                	<span
-	                		rel="popover"
+	                <td> 	                	
+	                	<span 
+	                		rel="popover" 
 	                		data-title="['page']['name']"
-	                		data-content="A JSON string containing the name of the page that loaded the app"
+	                		data-content="A JSON string containing the name of the page that loaded the app" 
 	                		data-trigger="hover">
-		                		Page Name
+		                		Page Name 
 	                	</span>
 	                </td>
 	                <td> <?php echo $page_name['name']; ?> </td>
 	            </tr>
 	            <tr>
-	                <td>
-	                	<span
-	                		rel="popover"
+	                <td> 
+	                	<span 
+	                		rel="popover" 
 	                		data-title="['page']['liked']"
-	                		data-content="A JSON boolean of whether the current user likes the page that loaded the app"
+	                		data-content="A JSON boolean of whether the current user likes the page that loaded the app" 
 	                		data-trigger="hover">
 		                		Do you like?
 	                	</span>
@@ -254,10 +256,10 @@ if(self == top) {
 	            </tr>
 	            <tr>
 	                <td>
- 	                	<span
-	                		rel="popover"
+ 	                	<span 
+	                		rel="popover" 
 	                		data-title="['page']['admin']"
-	                		data-content="A JSON boolean of whether the current user admins the page that loaded the app"
+	                		data-content="A JSON boolean of whether the current user admins the page that loaded the app" 
 	                		data-trigger="hover">
 		                		Are you an admin?
  	                	</span>
@@ -273,10 +275,10 @@ if(self == top) {
 	            <table class="table table-bordered table-striped">
 	                <tr>
 	                    <td>
-	   	                	<span
-		   	                	rel="popover"
+	   	                	<span 
+		   	                	rel="popover" 
 			   	                data-title="['user']['country']"
-			   	                data-content="A JSON string representing the country of the viewing user"
+			   	                data-content="A JSON string representing the country of the viewing user" 
 				   	              data-trigger="hover">
 					   	            	Country
 	   	                	</span>
@@ -285,10 +287,10 @@ if(self == top) {
 	                </tr>
 	                <tr>
 	                    <td>
- 	   	                	<span
-		   	                	rel="popover"
+ 	   	                	<span 
+		   	                	rel="popover" 
 			   	                data-title="['user']['locale']"
-			   	                data-content="A JSON string representing the locale of the viewing user"
+			   	                data-content="A JSON string representing the locale of the viewing user" 
 				   	              data-trigger="hover">
 					   	              Locale
  	   	                	</span>
@@ -310,14 +312,14 @@ if(self == top) {
 	            </table>
 	    </div>
 	    <div class="span6">
-	        <h3> OAuth info </h3>
+	        <h3> oAuth info </h3>
 	            <table class="table table-bordered table-striped">
 	                <tr>
 	                    <td>
- 	   	                	<span
-		   	                	rel="popover"
+ 	   	                	<span 
+		   	                	rel="popover" 
 			   	                data-title="oauth_token"
-			   	                data-content="A JSON string that can be used when making requests to the Graph API. This is also known as a user access token."
+			   	                data-content="A JSON string that can be used when making requests to the Graph API. This is also known as a user access token." 
 				   	              data-trigger="hover">
 					   	              Token
  	   	                	</span>
@@ -363,7 +365,7 @@ if(self == top) {
 	echo('<pre><code>');
 	print_r($signed_request);
 	echo('</code></pre>');
-
+	
 	?>
  	<hr />
  	<p class="alert alert-info"> This code is available on <a href="<?php echo $config['github-url'];?>" target="_blank">Github</a></p>

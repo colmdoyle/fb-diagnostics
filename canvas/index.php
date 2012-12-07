@@ -78,32 +78,81 @@ if ($signed_request['user_id']){
      ref.parentNode.insertBefore(js, ref);
    }(document, /*debug*/ false));
 </script>
-<script type="text/javascript">
-<!-- TODO - Make this more dynamic -->
-if(self == top) {
-	//window.location.replace("http://www.facebook.com/colmstestpage/app_120999667956026");
-}
-</script>
-<a href="https://github.com/colmdoyle/colms-sandbox" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
 <div class="container-fluid" id="content">
-	<div class="page-header">
-	<?php
-	if (!$_REQUEST['signed_request']) {
-	?>
-	<div class="alert alert-error">
-	  <button type="button" class="close" data-dismiss="alert">×</button>
-	  <h4>Warning!</h4>
-	  There was no signed_request in the POST.
-	</div>
-	<?php
-	}
-	?>
-		<h1><?php echo $config['AppName']; ?></h1>
-	</div>
+<div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="#"><?php echo $config['AppName']; ?></a>
+    <ul class="nav">
+	    <li class="dropdown">
+	      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+	        Dialogs
+	        <span class="caret"></span>
+	      </a>
+	      <ul class="dropdown-menu">
+	        <li>
+	        	<a tabindex="-1" href="#" id="add_page_tab">
+	        		<i class="icon-plus"></i> Add Page Tab
+	        	</a>
+	        </li>
+	        <li>
+	        	<a tabindex="-1" href="#" id="feed_dialog">
+	        		<i class="icon-comment"></i> Feed
+	        	</a>
+	        </li>
+	        <li>
+	        	<a tabindex="-1" href="#" id="send_dialog">
+	        		<i class="icon-envelope"></i> Send
+	        	</a>
+	        </li>
+	        <li>
+	        	<a tabindex="-1" href="#" id="oauth_dialog">
+	        		<i class="icon-lock"></i> OAuth
+	        	</a>
+	        </li>
+	        <li>
+	        	<a tabindex="-1" href="#" id="requests_mfs_dialog">
+	        		<i class="icon-globe"></i> Requests MultiFriend
+	        	</a>
+	        </li>
+	      </ul>
+	    </li>
+	    <li class="dropdown">
+	    	<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+		      Publishing
+		      <span class="caret"></span>
+		    </a>
+	      <ul class="dropdown-menu">
+	        <li>
+	        	<a tabindex="-1" href="#myModal" data-toggle="modal" id="feed_publish">
+	        		<i class="icon-comment"></i> Post to Wall
+	        	</a>
+	        </li>
+	        <li>
+	        	<a tabindex="-1" href="#" id="publish_action">
+	        		<i class="icon-plus-sign"></i> Publish an Action
+	        	</a>
+	        </li>
+	      </ul>
+	    </li>
+    </ul>
+  </div>
+</div>
+<div id="alert-container"></div>
+<?php
+if (!$_REQUEST['signed_request']) {
+?>
+<div class="alert alert-error">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <h4>Warning!</h4>
+  There was no signed_request in the POST.
+</div>
+<?php
+}
+?>
 	<div class="row-fluid">
 	    <div class="span6">
 	        <h3> The signed_request </h3>
-	        <table>
+	        <table class="table table-bordered table-striped">
 	            <tr>
 	                <td>
 	                	<span
@@ -132,7 +181,7 @@ if(self == top) {
 	    </div>
 	    <div class="span6">
 	        <h3> The User </h3>
-	            <table>
+	            <table class="table table-bordered table-striped">
 	                <tr>
 	                    <td>
 	   	                	<span
@@ -175,7 +224,7 @@ if(self == top) {
 	<div class="row-fluid">
 	    <div class="span12">
 	        <h3> OAuth info </h3>
-	            <table>
+	            <table class="table table-bordered table-striped">
 	                <tr>
 	                    <td>
  	   	                	<span
