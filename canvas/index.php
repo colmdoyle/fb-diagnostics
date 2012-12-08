@@ -306,7 +306,7 @@ if (!$_REQUEST['signed_request']) {
 			</ul>
 		</div>
 		<div class="span6">
-			<p class="muted pull-right">Copyright &copy; 2012 Colm Doyle, Licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0.</a></p>
+			<p class="muted pull-right">Copyright &copy; 2012 Colm Doyle, Licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License, Version 2.0.</a></p>
 		</div>
 	</div>
 </div>
