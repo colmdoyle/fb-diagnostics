@@ -386,7 +386,18 @@ if(self == top) {
 	
 	?>
  	<hr />
- 	<p class="alert alert-info"> This code is available on <a href="<?php echo $config['github-url'];?>" target="_blank">Github</a></p>
+	<div class="row-fluid">
+		<div class="span6">
+			<ul class="nav nav-pills">
+				<li><a href="<?php echo $config['github-url'];?>" target="_blank">Github</a></li>
+				<li><a href="<?php echo $config['github-url'];?>/issues" target="_blank">Report Bugs</a></li>
+				<li><a href="https://colmd.fbdublin.com/colms-sandbox/privacy.php">Privacy Policy</a></li>
+			</ul>
+		</div>
+		<div class="span6">
+			<p class="muted pull-right">Copyright &copy; 2012 Colm Doyle, Licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0.</a></p>
+		</div>
+	</div>
 </div>
 <!-- Modal -->
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
