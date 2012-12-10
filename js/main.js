@@ -52,7 +52,7 @@ $(document).ready(function () {
 		redirect_uri: 'https://colmd.fbdublin.com/fb-diagnostics/page-tab/',
 		link:'https://github.com/colmdoyle/fb-diagnostics',
 		picture: 'https://colmd.fbdublin.com/fb-diagnostics/img/320x320.png',
-		name: 'Colm\'s Sandbox',
+		name: 'Diagnostics App',
 		caption: 'It\'s a great app altogether',
 		description: 'Source code for a Facebook App that can be used to test various APIs & features of Facebook Apps.'
 		},
