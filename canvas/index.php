@@ -317,13 +317,25 @@ if (!$_REQUEST['signed_request']) {
 			<ul class="nav nav-pills">
 				<li><a href="<?php echo $config['github-url'];?>" target="_blank">Github</a></li>
 				<li><a href="<?php echo $config['github-url'];?>/issues" target="_blank">Report Bugs</a></li>
-				<li><a href="https://colmd.fbdublin.com/colms-sandbox/privacy.php">Privacy Policy</a></li>
+				<li><a data-toggle="modal" href="https://colmd.fbdublin.com/colms-sandbox/privacy.php" data-target="#privacyModal">Privacy Policy</a></li>
 			</ul>
 		</div>
 		<div class="span6">
 			<p class="muted pull-right">Copyright &copy; 2012 Colm Doyle, Licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License, Version 2.0.</a></p>
 		</div>
 	</div>
+</div>
+<!-- Blank Modal -->
+<div id="privacyModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="privacyModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3 id="privacyModalLbael">Privacy</h3>
+  </div>
+  <div class="modal-body">
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
 </div>
 
 </body>

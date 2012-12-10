@@ -407,7 +407,7 @@ if(self == top) {
 			<ul class="nav nav-pills">
 				<li><a href="<?php echo $config['github-url'];?>" target="_blank">Github</a></li>
 				<li><a href="<?php echo $config['github-url'];?>/issues" target="_blank">Report Bugs</a></li>
-				<li><a href="https://colmd.fbdublin.com/colms-sandbox/privacy.php">Privacy Policy</a></li>
+				<li><a data-toggle="modal" href="https://colmd.fbdublin.com/colms-sandbox/privacy.php" data-target="#privacyModal">Privacy Policy</a></li>
 			</ul>
 		</div>
 		<div class="span6">
@@ -418,7 +418,7 @@ if(self == top) {
 <!-- Modal -->
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
     <h3 id="myModalLabel">Post to Facebook</h3>
   </div>
   <div class="modal-body">
@@ -430,6 +430,18 @@ if(self == top) {
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
     <button class="btn btn-primary" id="publish_submit">Post to Facebook</button>
+  </div>
+</div>
+<!-- Blank Modal -->
+<div id="privacyModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="privacyModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3 id="privacyModalLbael">Privacy</h3>
+  </div>
+  <div class="modal-body">
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
   </div>
 </div>
 </body>
