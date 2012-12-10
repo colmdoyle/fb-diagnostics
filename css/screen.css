@@ -3,3 +3,6 @@
 /* Font Styling */
 .bold { font-weight: bold; }
 .italic {font-style: italic;}
+
+/* Wrap tokens since they're long */
+#access_token_td { word-break:break-all; }

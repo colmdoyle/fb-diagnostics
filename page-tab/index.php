@@ -359,7 +359,7 @@ if(self == top) {
  	   	                	</span>
  	   	                </td>
 											<td>
-												<a href="<?php echo $config['fb-debug'].$token; ?>" target="_blank">
+												<a href="<?php echo $config['fb-debug'].$token; ?>" target="_blank" id="access_token_td">
 												<?php echo $token;?></a>
 											</td>
 	                </tr>
