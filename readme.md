@@ -10,7 +10,7 @@ You can see it running as a Canvas App [here](https://apps.facebook.com/colms-sa
 
 License
 =======
-Copyright 2012 Colm Doylw
+Copyright 2012 Colm Doyle
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
