@@ -407,7 +407,7 @@ if(self == top) {
 			<ul class="nav nav-pills">
 				<li><a href="<?php echo $config['github-url'];?>" target="_blank">Github</a></li>
 				<li><a href="<?php echo $config['github-url'];?>/issues" target="_blank">Report Bugs</a></li>
-				<li><a data-toggle="modal" href="https://colmd.fbdublin.com/colms-sandbox/privacy.php" data-target="#privacyModal">Privacy Policy</a></li>
+				<li><a data-toggle="modal" href="https://colmd.fbdublin.com/fb-diagnostics/privacy.php" data-target="#privacyModal">Privacy Policy</a></li>
 			</ul>
 		</div>
 		<div class="span6">

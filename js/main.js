@@ -19,50 +19,50 @@ $(document).ready(function () {
 	if ($("[rel=popover]").length) {
 		$("[rel=popover]").popover();
 	}
-	
+
 	$('#add_page_tab').click(function(){
-		FB.ui({method: 'pagetab', redirect_uri: 'https://colmd.fbdublin.com/colms-sandbox/page-tab/'});
+		FB.ui({method: 'pagetab', redirect_uri: 'https://colmd.fbdublin.com/fb-diagnostics/page-tab/'});
 	});
-	
+
 	$('#send_dialog').click(function(){
-		FB.ui({method: 'send', link: 'https://www.github.com/colmdoyle/colms-sandbox'}, 
+		FB.ui({method: 'send', link: 'https://www.github.com/colmdoyle/fb-diagnostics'},
 		function(response) {
 			$('#alert-container').html('<div class="alert alert-success">'+ response.post_id + '<a class="close" data-dismiss="alert" href="#">&times;</a></div>');
 		});
 	});
 
 	$('#oauth_dialog').click(function(){
-		FB.ui({method: 'oauth'}, 
+		FB.ui({method: 'oauth'},
 		function(response) {
 			$('#alert-container').html('<div class="alert alert-success">'+ response + '<a class="close" data-dismiss="alert" href="#">&times;</a></div>');
 		});
 	});
-	
+
 	$('#requests_mfs_dialog').click(function(){
-		FB.ui({method: 'apprequests', message: 'You should see this test app'}, 
+		FB.ui({method: 'apprequests', message: 'You should see this test app'},
 		function(response) {
 			console.log(response);
 			$('#alert-container').html('<div class="alert alert-success"><p><strong>Request ID: </strong>'+ response.request +'</p><p><strong>Recipients: </strong>' + response.to + '</p><a class="close" data-dismiss="alert" href="#">&times;</a></div>');
 		});
 	});
-	
+
 	$('#feed_dialog').click(function(){
 		FB.ui({
-		method: 'feed', 
-		redirect_uri: 'https://colmd.fbdublin.com/colms-sandbox/page-tab/', 
-		link:'https://github.com/colmdoyle/colms-sandbox', 
-		picture: 'https://colmd.fbdublin.com/colms-sandbox/img/320x320.png',
+		method: 'feed',
+		redirect_uri: 'https://colmd.fbdublin.com/fb-diagnostics/page-tab/',
+		link:'https://github.com/colmdoyle/fb-diagnostics',
+		picture: 'https://colmd.fbdublin.com/fb-diagnostics/img/320x320.png',
 		name: 'Colm\'s Sandbox',
 		caption: 'It\'s a great app altogether',
 		description: 'Source code for a Facebook App that can be used to test various APIs & features of Facebook Apps.'
-		}, 
+		},
 		function(response) {
 			$('#alert-container').html('<div class="alert alert-success">'+ response.post_id + '<a class="close" data-dismiss="alert" href="#">&times;</a></div>');
 		});
 	});
-	
+
 	$('#publish_action').click(function(){
-		FB.api('/me/colms-sandbox:test', 'post', {testing_object: 'http://colmd.fbdublin.com/colms-sandbox/objects/testing.php'},
+		FB.api('/me/diagnostics-app:test', 'post', {testing_object: 'http://colmd.fbdublin.com/fb-diagnostics/objects/testing.php'},
 		function(response){
 			if (response.error) {
 				$('#alert-container').html('<div class="alert alert-error">'+ response.error + '<a class="close" data-dismiss="alert" href="#">&times;</a></div>');
@@ -74,7 +74,7 @@ $(document).ready(function () {
 			}
 		});
 	});
-	
+
 	$('#publish_submit').click(function(){
 		var message_val = $('#message_box_modal').val();
 		$('#myModal').modal('hide')
