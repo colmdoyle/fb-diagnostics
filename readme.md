@@ -1,15 +1,17 @@
-Colm's Sandbox
-==============
+# FB Diagnostics
 
-Source code for a Facebook App that can be used to test various APIs +
-features of Facebook Social Apps.
+For the sake of debugging a problem, sometimes it's useful to have an app that has an "at a glance" output of various different Facebook features / endpoints. This is just such a tool.
+
+It doesn't attempt to skin itself as a full app. It's just a dashboard of information and one click access to various [Facebook Dialogs](https://developers.facebook.com/docs/reference/dialogs/) and other publishing endpoints, like [OG Actions](https://developers.facebook.com/docs/concepts/opengraph/actions/) and [/feed](https://developers.facebook.com/docs/reference/api/user/#feed)
+
+## Examples 
 
 You can see it running as a Page Tab [here](https://www.facebook.com/colmstestpage/app_120999667956026)
 
 You can see it running as a Canvas App [here](https://apps.facebook.com/colms-sandbox)
 
-License
-=======
+# License
+
 Copyright 2012 Colm Doyle
 
 Licensed under the Apache License, Version 2.0 (the "License");
