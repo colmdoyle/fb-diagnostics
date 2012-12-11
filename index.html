@@ -1,44 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Colms-sandbox : A Facebook Application I use for a few bits and pieces, but mostly to generate access_token values." />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>FB Diagnostics by colmdoyle</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Colms-sandbox</title>
   </head>
-
   <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/colmdoyle/fb-diagnostics">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/colmdoyle/fb-diagnostics/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/colmdoyle/fb-diagnostics/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/colmdoyle/colms-sandbox">View on GitHub</a>
+    <div class="wrapper">
 
-          <h1 id="project_title">Colms-sandbox</h1>
-          <h2 id="project_tagline">A Facebook Application I use for a few bits and pieces, but mostly to generate access_token values.</h2>
+      <section>
+        <div id="title">
+          <h1>FB Diagnostics</h1>
+          <p>Facebook App Diagnostics at a glance</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/colmdoyle">colmdoyle</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+        </div>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/colmdoyle/colms-sandbox/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/colmdoyle/colms-sandbox/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
+        <h1>FB Diagnostics</h1>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>Colm's Sandbox</h1>
+<p>For the sake of debugging a problem, sometimes it's useful to have an app that has an "at a glance" output of various different Facebook features / endpoints. This is just such a tool.</p>
 
-<p>Source code for a Facebook App that can be used to test various APIs +
-features of Facebook Social Apps.</p>
+<p>It doesn't attempt to skin itself as a full app. It's just a dashboard of information and one click access to various <a href="https://developers.facebook.com/docs/reference/dialogs/">Facebook Dialogs</a> and other publishing endpoints, like <a href="https://developers.facebook.com/docs/concepts/opengraph/actions/">OG Actions</a> and <a href="https://developers.facebook.com/docs/reference/api/user/#feed">/feed</a></p>
+
+<h2>Examples</h2>
 
 <p>You can see it running as a Page Tab <a href="https://www.facebook.com/colmstestpage/app_120999667956026">here</a></p>
 
-<p>You can see it running as a Canvas App <a href="https://apps.facebook.com/colms-sandbox">here</a></p>
+<p>You can see it running as a Canvas App <a href="https://apps.facebook.com/diagnostics-app">here</a></p>
 
 <h1>License</h1>
 
@@ -46,10 +56,7 @@ features of Facebook Social Apps.</p>
 
 <p>Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
-You may obtain a copy of the License at</p>
-
-<pre><code>http://www.apache.org/licenses/LICENSE-2.0
-</code></pre>
+You may obtain a copy of the License at <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
 
 <p>Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -57,16 +64,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.</p>
       </section>
-    </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Colms-sandbox maintained by <a href="https://github.com/colmdoyle">colmdoyle</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
     </div>
-
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -77,7 +77,6 @@ limitations under the License.</p>
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
-
 
   </body>
 </html>
