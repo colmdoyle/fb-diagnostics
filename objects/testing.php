@@ -16,16 +16,16 @@ limitations under the License.
 */
 
 $fb_ref = $_REQUEST['fb_source'];
-
+include(__DIR__ . '/../includes/__init__.php');
 ?>
 
 <html>
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# video: http://ogp.me/ns/video#">
-  <meta property="fb:app_id"                     content="120999667956026" /> 
-  <meta property="og:type"                       content="diagnostics-app:testing_object" /> 
-  <meta property="og:url"                        content="http://colmd.fbdublin.com/fb-diagnostics/objects/testing_object.html" /> 
+  <meta property="fb:app_id"                     content="<?php echo $config['AppId']; ?>" /> 
+  <meta property="og:type"                       content="<?php echo $config['namespace'];?>:testing_object" /> 
+  <meta property="og:url"                        content="http://colmd.fbdublin.com/fb-diagnostics/objects/testing.php" /> 
   <meta property="og:title"                      content="Sample Testing Object" /> 
-  <meta property="og:image"                      content="https://s-static.ak.fbcdn.net/images/devsite/attachment_blank.png" /> 
+  <meta property="og:image"                      content="http://colmd.fbdublin.com/fb-diagnostics/img/320x320.png" /> 
 </head>
 <body>
 <p>Hello intrepid visitor.</p>
