@@ -17,7 +17,7 @@ limitations under the License.
 
 include(__DIR__ . '/../includes/__init__.php');
 
-echo output_header();
+echo output_header($config['RootUrl']);
 
 $signed_request = parse_signed_request($_REQUEST['signed_request'], $config['AppSecret']);
 $page_name = json_decode(curl_call('https://graph.facebook.com/'.$signed_request['page']['id']), true);
@@ -87,7 +87,7 @@ if ($signed_request['user_id']){
     // init the FB JS SDK
     FB.init({
       appId      : '<?php echo $config['AppId'];?>', // App ID from the App Dashboard
-      channelUrl : '//COLMD.FBDUBLIN.COM/channel.html', // Channel File for x-domain communication
+      channelUrl : '<?php echo $config['RootUrl']; ?>channel.html', // Channel File for x-domain communication
       status     : true, // check the login status upon init?
       cookie     : true, // set sessions cookies to allow your server to access the session?
       xfbml      : true  // parse XFBML tags on this page?
@@ -407,7 +407,7 @@ if(self == top) {
 			<ul class="nav nav-pills">
 				<li><a href="<?php echo $config['github-url'];?>" target="_blank">Github</a></li>
 				<li><a href="<?php echo $config['github-url'];?>/issues" target="_blank">Report Bugs</a></li>
-				<li><a data-toggle="modal" href="https://colmd.fbdublin.com/fb-diagnostics/privacy.php" data-target="#privacyModal">Privacy Policy</a></li>
+				<li><a data-toggle="modal" href="<?php echo $config['RootUrl']; ?>privacy.php" data-target="#privacyModal">Privacy Policy</a></li>
 			</ul>
 		</div>
 		<div class="span6">

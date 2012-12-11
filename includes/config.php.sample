@@ -16,6 +16,7 @@ limitations under the License.
 */
 
 $config = array(
+	'RootUrl' => 'https://YOUR_ROOT_URL/',
   'AppId' => 'YOUR_APP_ID',
   'AppSecret' => 'YOUR_APP_SECRET',
   'CanvasUrl' => 'https://apps.facebook.com/<YOUR_NAMESPACE>',

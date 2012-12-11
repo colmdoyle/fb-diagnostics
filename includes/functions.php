@@ -60,18 +60,18 @@ function output_standard_head(
 
   return $output;
 }
-function output_header () {
+function output_header ($root_url) {
   $head = '<head>';
 	// TODO - This is clowny. Make it better.
-  $head .= output_standard_head('Colm\'s Sandbox', 'website', 'http://colmd.fbdublin.com/fb-diagnostics/page-tab/index.php', 'https://fbcdn-photos-a.akamaihd.net/photos-ak-snc7/v85005/230/120999667956026/app_10_120999667956026_1011543027.gif', 'Colm\'s Sandbox', '120999667956026');
+  $head .= output_standard_head('Colm\'s Sandbox', 'website', $root_url.'page-tab/index.php', 'https://fbcdn-photos-a.akamaihd.net/photos-ak-snc7/v85005/230/120999667956026/app_10_120999667956026_1011543027.gif', 'Colm\'s Sandbox', '120999667956026');
   $head .= '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>';
 	$head .= '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />';
   $head .= '<script src=\'https://connect.facebook.net/en_US/all.js\'></script>';
-  $head .= '<link href="https://colmd.fbdublin.com/fb-diagnostics/css/bootstrap.min.css" rel="stylesheet" media="screen">';
+  $head .= '<link href="'. $root_url . 'css/bootstrap.min.css" rel="stylesheet" media="screen">';
   $head .= '<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>';
-  $head .= '<script src="https://colmd.fbdublin.com/fb-diagnostics/js/bootstrap.min.js"></script>';
-  $head .= '<script src="https://colmd.fbdublin.com/fb-diagnostics/js/main.js"></script>';
-  $head .= '<link rel="stylesheet" type="text/css" href="https://colmd.fbdublin.com/fb-diagnostics/css/screen.css" />';
+  $head .= '<script src="'. $root_url . 'js/bootstrap.min.js"></script>';
+  $head .= '<script src="'. $root_url . 'js/main.js"></script>';
+  $head .= '<link rel="stylesheet" type="text/css" href="'. $root_url . 'css/screen.css" />';
 
   $head .= '</head>';
 
