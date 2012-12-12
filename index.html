@@ -15,9 +15,23 @@
     <link rel="stylesheet" href="stylesheets/ie.css">
     <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
+    <!-- FB OG Data -->
+    <meta property="fb:app_id" content="120999667956026" />
+    <meta property="og:title" content="FB Diagnostics App" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="http://colmdoyle.github.com/fb-diagnostics/images/logov1.png" />
+    <meta property="og:url" content="http://colmdoyle.github.com/fb-diagnostics/" />
+    <meta property="og:description" content="Facebook App Diagnostics at a glance" />
   </head>
   <body>
+  		<div id="fb-root"></div>
+      <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=120999667956026";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
       <div id="header">
         <nav>
           <li class="fork"><a href="https://github.com/colmdoyle/fb-diagnostics">View On GitHub</a></li>
@@ -37,7 +51,7 @@
           <span class="credits left">Project maintained by <a href="https://github.com/colmdoyle">colmdoyle</a></span>
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
         </div>
-
+        <p><div class="fb-like" data-href="http://colmdoyle.github.com/fb-diagnostics/" data-send="true" data-width="450" data-show-faces="true" data-colorscheme="dark"></div></p>
         <h1>FB Diagnostics</h1>
 
 <p>For the sake of debugging a problem, sometimes it's useful to have an app that has an "at a glance" output of various different Facebook features / endpoints. This is just such a tool.</p>
