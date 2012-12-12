@@ -97,6 +97,7 @@ $(document).ready(function () {
 		});
 		FB.login(function(response){
 			$('#oauth-modal').modal('hide');
+			$('#oauth_scope_form').find('input:checked').removeAttr('checked');
 			var oauth_html_response = '<ul class="unstyled">';
 			$.each(response.authResponse, function(key, valueObj) {
 				oauth_html_response += '<li class="break-all"><strong>'+key+'</strong> : '+valueObj+'</li>';
@@ -105,6 +106,10 @@ $(document).ready(function () {
 			$('#alert-container').html('<div class="alert alert-success"><a class="close" data-dismiss="alert" href="#">&times;</a><h4>Response Object</h4>'+ oauth_html_response + '</div>');
 			console.log(response);
 		}, {scope: scope});
+	});
+	
+	$('#clear_checkbox').click(function() {
+		$('#oauth_scope_form').find('input:checked').removeAttr('checked');
 	});
 });
 
