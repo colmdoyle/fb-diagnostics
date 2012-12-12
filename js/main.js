@@ -31,13 +31,6 @@ $(document).ready(function () {
 		});
 	});
 
-	$('#oauth_dialog').click(function(){
-		FB.ui({method: 'oauth'},
-		function(response) {
-			$('#alert-container').html('<div class="alert alert-success">'+ response + '<a class="close" data-dismiss="alert" href="#">&times;</a></div>');
-		});
-	});
-
 	$('#requests_mfs_dialog').click(function(){
 		FB.ui({method: 'apprequests', message: 'You should see this test app'},
 		function(response) {
@@ -77,7 +70,6 @@ $(document).ready(function () {
 
 	$('#publish_submit').click(function(){
 		var message_val = $('#message_box_modal').val();
-		$('#myModal').modal('hide')
 		FB.api('/me/feed', 'post', {message: message_val},
 		function(response){
 			if (response.error) {
@@ -91,6 +83,28 @@ $(document).ready(function () {
 				console.log(response);
 			}
 		});
+	});
+	
+	$('#oauth_submit').click(function(){
+		var scope = '';
+		var perms = $('#oauth_scope_form').find('input:checked');
+		var perms_length = perms.length - 1;
+		$(perms).each(function(index) {
+			scope += $(this).val();
+			if (index < perms_length) {
+				scope += ',';
+			}
+		});
+		FB.login(function(response){
+			$('#oauth-modal').modal('hide');
+			var oauth_html_response = '<ul class="unstyled">';
+			$.each(response.authResponse, function(key, valueObj) {
+				oauth_html_response += '<li class="break-all"><strong>'+key+'</strong> : '+valueObj+'</li>';
+			});
+			oauth_html_response += '</ul>'
+			$('#alert-container').html('<div class="alert alert-success"><a class="close" data-dismiss="alert" href="#">&times;</a><h4>Response Object</h4>'+ oauth_html_response + '</div>');
+			console.log(response);
+		}, {scope: scope});
 	});
 });
 

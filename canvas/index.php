@@ -120,7 +120,7 @@ if ($signed_request['user_id']){
 	        	</a>
 	        </li>
 	        <li>
-	        	<a tabindex="-1" href="#" id="oauth_dialog">
+	        	<a tabindex="-1" href="#oauth-modal" data-toggle="modal" id="oauth_dialog">
 	        		<i class="icon-lock"></i> OAuth
 	        	</a>
 	        </li>
@@ -269,7 +269,7 @@ if (!$_REQUEST['signed_request']) {
  	   	                	</span>
  	   	                </td>
 											<td>
-												<a href="<?php echo $config['fb-debug'].$token; ?>" target="_blank">
+												<a href="<?php echo $config['fb-debug'].$token; ?>" target="_blank" class="break-all">
 												<?php echo $token;?></a>
 											</td>
 	                </tr>
@@ -325,7 +325,351 @@ if (!$_REQUEST['signed_request']) {
 		</div>
 	</div>
 </div>
-<!-- Blank Modal -->
+<!-- 
+	Feed Modal 
+	===========================
+-->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3 id="myModalLabel">Post to Facebook</h3>
+  </div>
+  <div class="modal-body">
+  	<p> Enter the message you want to post in the field below </p>
+		<form class="form-inline">
+		  <input type="text" id="message_box_modal" placeholder="What's on your mind?">
+		</form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary" id="publish_submit">Post to Facebook</button>
+  </div>
+</div>
+<!-- 
+	OAuth Modal 
+	==================
+-->
+<div id="oauth-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="oauth-modalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3 id="oauth-modalLabel">Choose Permissions</h3>
+  </div>
+  <div class="modal-body">
+		<ul class="nav nav-pills">
+			<li class="active"><a href="#user-data" data-toggle="tab">User Data Permissions</a></li>
+			<li><a href="#friend-data" data-toggle="tab">Friends Data Permissions</a></li>
+			<li><a href="#extended-data" data-toggle="tab">Extended Permissions</a></li>
+		</ul>
+		<div class="tab-content" id="oauth_scope_form">
+		  <div class="tab-pane active" id="user-data">
+			  <form class="form container-fluid">
+			  	<div class="row-fluid">
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="email" value="email"> email
+				    </label>
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="publish_actions" value="publish_actions"> publish_actions
+				    </label>
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="user_about_me" value="user_about_me"> user_about_me
+				    </label>
+			  	</div>
+			  	<div class="row-fluid">
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="user_actions.music" value="user_actions.music"> user_actions.music
+				    </label>
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="user_actions.news" value="user_actions.news"> user_actions.news
+				    </label>
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="user_actions.video" value="user_actions.video"> user_actions.video
+				    </label>
+			  	</div>
+			  	<div class="row-fluid">
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="user_activities" value="user_activities"> user_activities
+				    </label>
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="user_birthday" value="user_birthday"> user_birthday
+				    </label>
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="user_education_history" value="user_education_history"> user_education_history
+				    </label>
+			  	</div>
+			  	<div class="row-fluid">
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="user_events" value="user_events"> user_events
+				    </label>
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="user_games_activity" value="user_games_activity"> user_games_activity
+				    </label>
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="user_groups" value="user_groups"> user_groups
+				    </label>
+			  	</div>
+			  	<div class="row-fluid">
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="user_hometown" value="user_hometown"> user_hometown
+				    </label>
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="user_interests" value="user_interests"> user_interests
+				    </label>
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="user_likes" value="user_likes"> user_likes
+				    </label>
+			  	</div>
+			  	<div class="row-fluid">
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="user_location" value="user_location"> user_location
+				    </label>
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="user_notes" value="user_notes"> user_notes
+				    </label>
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="user_photos" value="user_photos"> user_photos
+				    </label>
+			  	</div>
+			  	<div class="row-fluid">
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="user_questions" value="user_questions"> user_questions
+				    </label>
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="user_relationship_details" value="user_relationship_details"> user_relationship_details
+				    </label>
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="user_relationships" value="user_relationships"> user_relationships
+				    </label>
+			  	</div>
+			  	<div class="row-fluid">
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="user_religion_politics" value="user_religion_politics"> user_religion_politics
+				    </label>
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="user_status" value="user_status"> user_status
+				    </label>
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="user_subscriptions" value="user_subscriptions"> user_subscriptions
+				    </label>
+			  	</div>
+			  	<div class="row-fluid">
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="user_videos" value="user_videos"> user_videos
+				    </label>
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="user_website" value="user_website"> user_website
+				    </label>
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="user_work_history" value="user_work_history"> user_work_history
+				    </label>
+			  	</div>
+			  </form>
+		  </div>
+		  <div class="tab-pane" id="friend-data">
+			  <form class="form container-fluid">
+			  	<div class="row-fluid">
+				  <label class="checkbox inline span4">
+				    <input type="checkbox" id="friends_about_me" value="friends_about_me"> friends_about_me
+				  </label>
+				  <label class="checkbox inline span4">
+				    <input type="checkbox" id="friends_actions.music" value="friends_actions.music"> friends_actions.music
+				  </label>
+				  <label class="checkbox inline span4">
+				    <input type="checkbox" id="friends_actions.news" value="friends_actions.news"> friends_actions.news
+				  </label>
+			  	</div>
+			  	<div class="row-fluid">
+				  <label class="checkbox inline span4">
+				    <input type="checkbox" id="friends_actions.video" value="friends_actions.video"> friends_actions.video
+				  </label>
+				  <label class="checkbox inline span4">
+				    <input type="checkbox" id="friends_activities" value="friends_activities"> friends_activities
+				  </label>
+				  <label class="checkbox inline span4">
+				    <input type="checkbox" id="friends_birthday" value="friends_birthday"> friends_birthday
+				  </label>
+			  	</div>
+			  	<div class="row-fluid">
+				  <label class="checkbox inline span4">
+				    <input type="checkbox" id="friends_education_history" value="friends_education_history"> friends_education_history
+				  </label>
+				  <label class="checkbox inline span4">
+				    <input type="checkbox" id="friends_events" value="friends_events"> friends_events
+				  </label>
+				  <label class="checkbox inline span4">
+				    <input type="checkbox" id="friends_games_activity" value="friends_games_activity"> friends_games_activity
+				  </label>
+			  	</div>
+			  	<div class="row-fluid">
+				  <label class="checkbox inline span4">
+				    <input type="checkbox" id="friends_groups" value="friends_groups"> friends_groups
+				  </label>
+				  <label class="checkbox inline span4">
+				    <input type="checkbox" id="friends_hometown" value="friends_hometown"> friends_hometown
+				  </label>
+				  <label class="checkbox inline span4">
+				    <input type="checkbox" id="friends_interests" value="friends_interests"> friends_interests
+				  </label>
+			  	</div>
+			  	<div class="row-fluid">
+				  <label class="checkbox inline span4">
+				    <input type="checkbox" id="friends_likes" value="friends_likes"> friends_likes
+				  </label>
+				  <label class="checkbox inline span4">
+				    <input type="checkbox" id="friends_location" value="friends_location"> friends_location
+				  </label>
+				  <label class="checkbox inline span4">
+				    <input type="checkbox" id="friends_notes" value="friends_notes"> friends_notes
+				  </label>
+			  	</div>
+			  	<div class="row-fluid">
+				  <label class="checkbox inline span4">
+				    <input type="checkbox" id="friends_photos" value="friends_photos"> friends_photos
+				  </label>
+				  <label class="checkbox inline span4">
+				    <input type="checkbox" id="friends_questions" value="friends_questions"> friends_questions
+				  </label>
+				  <label class="checkbox inline span4">
+				    <input type="checkbox" id="friends_relationship_details" value="friends_relationship_details"> friends_relationship_details
+				  </label>
+			  	</div>
+			  	<div class="row-fluid">
+				  <label class="checkbox inline span4">
+				    <input type="checkbox" id="friends_relationships" value="friends_relationships"> friends_relationships
+				  </label>
+				  <label class="checkbox inline span4">
+				    <input type="checkbox" id="friends_religion_politics" value="friends_religion_politics"> friends_religion_politics
+				  </label>
+				  <label class="checkbox inline span4">
+				    <input type="checkbox" id="friends_status" value="friends_status"> friends_status
+				  </label>
+			  	</div>
+			  	<div class="row-fluid">
+				  <label class="checkbox inline span4">
+				    <input type="checkbox" id="friends_subscriptions" value="friends_subscriptions"> friends_subscriptions
+				  </label>
+				  <label class="checkbox inline span4">
+				    <input type="checkbox" id="friends_videos" value="friends_videos"> friends_videos
+				  </label>
+				  <label class="checkbox inline span4">
+				    <input type="checkbox" id="friends_website" value="friends_website"> friends_website
+				  </label>
+			  	</div>
+			  	<div class="row-fluid">
+				  <label class="checkbox inline span4">
+				    <input type="checkbox" id="friends_work_history" value="friends_work_history"> friends_work_history
+				  </label>
+			  	</div>
+			  </form>			  
+		  </div>
+		  <div class="tab-pane" id="extended-data">
+			  <form class="form container-fluid">
+			  	<div class="row-fluid">
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="ads_management" value="ads_management"> ads_management
+				    </label>
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="create_event" value="create_event"> create_event
+				    </label>
+				    <label class="checkbox inline span4">
+				      <input type="checkbox" id="create_note" value="create_note"> create_note
+				    </label>
+			  	</div>
+			  	<div class="row-fluid">
+					  <label class="checkbox inline span4">
+					    <input type="checkbox" id="export_stream" value="export_stream"> export_stream
+					  </label>
+					  <label class="checkbox inline span4">
+					    <input type="checkbox" id="friends_online_presence" value="friends_online_presence"> friends_online_presence
+					  </label>
+					  <label class="checkbox inline span4">
+					    <input type="checkbox" id="manage_friendlists" value="manage_friendlists"> manage_friendlists
+					  </label>
+			  	</div>
+			  	<div class="row-fluid">
+					  <label class="checkbox inline span4">
+					    <input type="checkbox" id="manage_notifications" value="manage_notifications"> manage_notifications
+					  </label>
+					  <label class="checkbox inline span4">
+					    <input type="checkbox" id="manage_pages" value="manage_pages"> manage_pages
+					  </label>
+					  <label class="checkbox inline span4">
+					    <input type="checkbox" id="offline_access" value="offline_access"> offline_access
+					  </label>
+			  	</div>
+			  	<div class="row-fluid">
+					  <label class="checkbox inline span4">
+					    <input type="checkbox" id="photo_upload" value="photo_upload"> photo_upload
+					  </label>
+					  <label class="checkbox inline span4">
+					    <input type="checkbox" id="publish_checkins" value="publish_checkins"> publish_checkins
+					  </label>
+					  <label class="checkbox inline span4">
+					    <input type="checkbox" id="publish_stream" value="publish_stream"> publish_stream
+					  </label>
+			  	</div>
+			  	<div class="row-fluid">
+					  <label class="checkbox inline span4">
+					    <input type="checkbox" id="read_friendlists" value="read_friendlists"> read_friendlists
+					  </label>
+					  <label class="checkbox inline span4">
+					    <input type="checkbox" id="read_insights" value="read_insights"> read_insights
+					  </label>
+					  <label class="checkbox inline span4">
+					    <input type="checkbox" id="read_mailbox" value="read_mailbox"> read_mailbox
+					  </label>
+			  	</div>
+			  	<div class="row-fluid">
+					  <label class="checkbox inline span4">
+					    <input type="checkbox" id="read_page_mailboxes" value="read_page_mailboxes"> read_page_mailboxes
+					  </label>
+					  <label class="checkbox inline span4">
+					    <input type="checkbox" id="read_requests" value="read_requests"> read_requests
+					  </label>
+					  <label class="checkbox inline span4">
+					    <input type="checkbox" id="read_stream" value="read_stream"> read_stream
+					  </label>
+			  	</div>
+			  	<div class="row-fluid">
+					  <label class="checkbox inline span4">
+					    <input type="checkbox" id="rsvp_event" value="rsvp_event"> rsvp_event
+					  </label>
+					  <label class="checkbox inline span4">
+					    <input type="checkbox" id="share_item" value="share_item"> share_item
+					  </label>
+					  <label class="checkbox inline span4">
+					    <input type="checkbox" id="sms" value="sms"> sms
+					  </label>
+			  	</div>
+			  	<div class="row-fluid">
+					  <label class="checkbox inline span4">
+					    <input type="checkbox" id="status_update" value="status_update"> status_update
+					  </label>
+					  <label class="checkbox inline span4">
+					    <input type="checkbox" id="user_online_presence" value="user_online_presence"> user_online_presence
+					  </label>
+					  <label class="checkbox inline span4">
+					    <input type="checkbox" id="video_upload" value="video_upload"> video_upload
+					  </label>
+			  	</div>
+			  	<div class="row-fluid">
+					  <label class="checkbox inline span4">
+					    <input type="checkbox" id="xmpp_login" value="xmpp_login"> xmpp_login
+					  </label>
+			  	</div>
+			  </form>	  
+		  </div>
+		</div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" id="oauth_submit">Get Access Token</button>
+    <button class="btn" id="clear_checkbox">Clear</button>
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+  </div>
+</div>
+<!-- 
+	Privacy Modal 
+	========================
+-->
 <div id="privacyModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="privacyModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -336,6 +680,4 @@ if (!$_REQUEST['signed_request']) {
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
   </div>
-</div>
-
-</body>
+</div></body>
