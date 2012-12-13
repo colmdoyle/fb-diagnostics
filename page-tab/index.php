@@ -89,12 +89,12 @@ if ($signed_request['user_id']){
     // init the FB JS SDK
     FB.init({
       appId      : '<?php echo $config['AppId'];?>', // App ID from the App Dashboard
-      channelUrl : '<?php echo $config['RootUrl']; ?>channel.html', // Channel File for x-domain communication
+      channelUrl : '<?php echo $config['ChannelUrl']; ?>', // Channel File for x-domain communication
       status     : true, // check the login status upon init?
       cookie     : true, // set sessions cookies to allow your server to access the session?
       xfbml      : true  // parse XFBML tags on this page?
     });
-
+    
     FB.Canvas.setAutoGrow();
     FB.getLoginStatus(function(response) {
 	    if (response.status === 'connected') {
