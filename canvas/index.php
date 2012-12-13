@@ -43,8 +43,9 @@ if ($signed_request['app_data']) {
 
 if ($signed_request['oauth_token']) {
     $token = $signed_request['oauth_token'];
+    $token_field = '<a href="'. $config['fb-debug'].$token .'" target="_blank" class="break-all">'.$token.'</a>';
 } else {
-    $token = 'No token supplied';
+    $token_field = 'No token supplied';
 }
 
 if ($signed_request['expires']){
@@ -59,8 +60,10 @@ if ($signed_request['expires']){
 
 if ($signed_request['user_id']){
     $user_id = $signed_request['user_id'];
+    $user_name = json_decode(curl_call('https://graph.facebook.com/'.$signed_request['user_id']), true);
+    $user_field = '<a href="' . $config['graph-explorer'] . $user_id .'" target="_blank">'. $user_id . '</a> (' . $user_name['name'] . ')';
 } else {
-    $user_id = 'No user id provided';
+    $user_field = 'No user ID provided';
 }
 
 ?>
@@ -269,8 +272,7 @@ if (!$_REQUEST['signed_request']) {
  	   	                	</span>
  	   	                </td>
 											<td>
-												<a href="<?php echo $config['fb-debug'].$token; ?>" target="_blank" class="break-all">
-												<?php echo $token;?></a>
+												<?php echo $token_field; ?>
 											</td>
 	                </tr>
 	                <tr>
@@ -296,9 +298,7 @@ if (!$_REQUEST['signed_request']) {
 	                    	</span>
 	                    </td>
 											<td>
-												<a href="<?php echo $config['graph-explorer'].$user_id; ?>" target="_blank">
-													<?php echo $user_id; ?></a>
-											<?php echo ' (' . $user_name['name'] . ')'; ?>
+												<?php echo $user_field; ?>
 											</td>
 	                </tr>
 	            </table>

@@ -21,7 +21,6 @@ echo output_header($config['RootUrl']);
 
 $signed_request = parse_signed_request($_REQUEST['signed_request'], $config['AppSecret']);
 $page_name = json_decode(curl_call('https://graph.facebook.com/'.$signed_request['page']['id']), true);
-$user_name = json_decode(curl_call('https://graph.facebook.com/'.$signed_request['user_id']), true);
 
 // Does the viewing user like the page?
 
@@ -58,8 +57,9 @@ if ($signed_request['app_data']) {
 
 if ($signed_request['oauth_token']) {
     $token = $signed_request['oauth_token'];
+    $token_field = '<a href="'. $config['fb-debug'].$token .'" target="_blank" class="break-all">'.$token.'</a>';
 } else {
-    $token = 'No token supplied';
+    $token_field = 'No token supplied';
 }
 
 if ($signed_request['expires']){
@@ -74,8 +74,10 @@ if ($signed_request['expires']){
 
 if ($signed_request['user_id']){
     $user_id = $signed_request['user_id'];
+    $user_name = json_decode(curl_call('https://graph.facebook.com/'.$signed_request['user_id']), true);
+    $user_field = '<a href="' . $config['graph-explorer'] . $user_id .'" target="_blank">'. $user_id . '</a> (' . $user_name['name'] . ')';
 } else {
-    $user_id = 'No user id provided';
+    $user_field = 'No user ID provided';
 }
 
 ?>
@@ -370,8 +372,7 @@ if(self == top) {
  	   	                	</span>
  	   	                </td>
 											<td>
-												<a href="<?php echo $config['fb-debug'].$token; ?>" target="_blank" class="break-all">
-												<?php echo $token;?></a>
+												<?php echo $token_field; ?>
 											</td>
 	                </tr>
 	                <tr>
@@ -397,9 +398,7 @@ if(self == top) {
 	                    	</span>
 	                    </td>
 											<td>
-												<a href="<?php echo $config['graph-explorer'].$user_id; ?>" target="_blank">
-													<?php echo $user_id; ?></a>
-											<?php echo ' (' . $user_name['name'] . ')'; ?>
+												<?php echo $user_field; ?>
 											</td>
 	                </tr>
 	            </table>
