@@ -96,97 +96,109 @@ if ($signed_request['user_id']){
      ref.parentNode.insertBefore(js, ref);
    }(document, /*debug*/ false));
 </script>
-<div class="container-fluid" id="content">
-<div class="navbar">
+<!-- !NavBar 	-->
+<div class="navbar navbar-static-top" id="navbar">
   <div class="navbar-inner">
     <a class="brand" href="#"><?php echo $config['AppName']; ?></a>
     <ul class="nav">
-	    <li class="dropdown">
-	      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-	        Dialogs
-	        <span class="caret"></span>
-	      </a>
-	      <ul class="dropdown-menu">
-	        <li>
-	        	<a tabindex="-1" href="#" id="add_page_tab">
-	        		<i class="icon-plus"></i> Add Page Tab
-	        	</a>
-	        </li>
-	        <li>
-	        	<a tabindex="-1" href="#" id="feed_dialog">
-	        		<i class="icon-comment"></i> Feed
-	        	</a>
-	        </li>
-	        <li>
-	        	<a tabindex="-1" href="#" id="send_dialog">
-	        		<i class="icon-envelope"></i> Send
-	        	</a>
-	        </li>
-	        <li>
-	        	<a tabindex="-1" href="#oauth-modal" data-toggle="modal" id="oauth_dialog">
-	        		<i class="icon-lock"></i> OAuth
-	        	</a>
-	        </li>
-	        <li>
-	        	<a tabindex="-1" href="#" id="requests_mfs_dialog">
-	        		<i class="icon-globe"></i> Requests MultiFriend
-	        	</a>
-	        </li>
-	      </ul>
-	    </li>
-	    <li class="dropdown">
-	    	<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-		      Publishing
-		      <span class="caret"></span>
-		    </a>
-	      <ul class="dropdown-menu">
-	        <li>
-	        	<a tabindex="-1" href="#myModal" data-toggle="modal" id="feed_publish">
-	        		<i class="icon-comment"></i> Post to Wall
-	        	</a>
-	        </li>
-	        <li>
-	        	<a tabindex="-1" href="#" id="publish_action">
-	        		<i class="icon-plus-sign"></i> Publish an Action
-	        	</a>
-	        </li>
-	      </ul>
-	    </li>
-	    <li class="dropdown">
-	    	<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-		      View On
-		      <span class="caret"></span>
-		    </a>
-	      <ul class="dropdown-menu">
-	        <li>
-	        	<a tabindex="-1" href="<?php echo $config['CanvasUrl']; ?>" target="_blank">
-	        		<i class="icon-th-large"></i> Canvas
-	        	</a>
-	        </li>
-	        <li>
-	        	<a tabindex="-1" href="<?php echo $config['PageTabUrl']; ?>" target="_blank">
-	        		<i class="icon-flag"></i> Page Tab
-	        	</a>
-	        </li>
-	      </ul>
-	    </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          Dialogs
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+          	<a tabindex="-1" href="#" id="add_page_tab">
+          		<i class="icon-plus"></i> Add Page Tab
+          	</a>
+          </li>
+          <li>
+          	<a tabindex="-1" href="#" id="feed_dialog">
+          		<i class="icon-comment"></i> Feed
+          	</a>
+          </li>
+          <li>
+          	<a tabindex="-1" href="#" id="send_dialog">
+          		<i class="icon-envelope"></i> Send
+          	</a>
+          </li>
+          <li>
+          	<a tabindex="-1" href="#oauth-modal" data-toggle="modal" id="oauth_dialog">
+          		<i class="icon-lock"></i> OAuth
+          	</a>
+          </li>
+          <li>
+          	<a tabindex="-1" href="#" id="requests_mfs_dialog">
+          		<i class="icon-globe"></i> Requests MultiFriend
+          	</a>
+          </li>
+        </ul>
+      </li>
+      <li class="dropdown">
+      	<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+  	      Publishing
+  	      <span class="caret"></span>
+  	    </a>
+        <ul class="dropdown-menu">
+          <li>
+          	<a tabindex="-1" href="#myModal" data-toggle="modal" id="feed_publish">
+          		<i class="icon-comment"></i> Post to Wall
+          	</a>
+          </li>
+          <li>
+          	<a tabindex="-1" href="#" id="publish_action">
+          		<i class="icon-plus-sign"></i> Publish an Action
+          	</a>
+          </li>
+        </ul>
+      </li>
+      <li class="dropdown">
+      	<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+  	      View On
+  	      <span class="caret"></span>
+  	    </a>
+        <ul class="dropdown-menu">
+          <li>
+          	<a tabindex="-1" href="<?php echo $config['CanvasUrl']; ?>" target="_blank">
+          		<i class="icon-th-large"></i> Canvas
+          	</a>
+          </li>
+          <li>
+          	<a tabindex="-1" href="<?php echo $config['PageTabUrl']; ?>" target="_blank">
+          		<i class="icon-flag"></i> Page Tab
+          	</a>
+          </li>
+        </ul>
+      </li>
     </ul>
   </div>
 </div>
-<div id="alert-container"></div>
-<?php
-if (!$_REQUEST['signed_request']) {
-?>
-<div class="alert alert-error">
-  <button type="button" class="close" data-dismiss="alert">×</button>
-  <h4>Warning!</h4>
-  There was no signed_request in the POST.
-</div>
-<?php
-}
-?>
+<!-- !/NavBar -->
+<div class="container-fluid" id="content">
+	<div id="alert-container"></div>
+	<?php
+	if (!$_REQUEST['signed_request']) {
+	?>
+	<div class="alert alert-error">
+	  <button type="button" class="close" data-dismiss="alert">&times;</button>
+	  <h4>Warning!</h4>
+	  There was no signed_request in the POST.
+	</div>
+	<?php
+	}
+	?>
 	<div class="row-fluid">
-	    <div class="span6">
+		<div class="span2" id="side-nav">
+			  <ul class="nav nav-tabs nav-stacked">
+				  <li class="active"><a href="#tab1" data-toggle="tab">Signed Request</a></li>
+				  <li><a href="#tab2" data-toggle="tab">Explorer</a></li>
+				</ul>
+		</div>
+		<!-- !main-content -->
+		<div class="span10 tab-content" id="content-pane">
+			<div class="tab-pane active" id="tab1">
+				<div class="row-fluid">
+		    <div class="span6">
 	        <h3> The signed_request </h3>
 	        <table class="table table-bordered table-striped">
 	            <tr>
@@ -215,7 +227,7 @@ if (!$_REQUEST['signed_request']) {
 	            </tr>
 	        </table>
 	    </div>
-	    <div class="span6">
+		    <div class="span6">
 	        <h3> The User </h3>
 	            <table class="table table-bordered table-striped">
 	                <tr>
@@ -256,62 +268,108 @@ if (!$_REQUEST['signed_request']) {
 	                </tr>
 	            </table>
 	    </div>
-	</div>
-	<div class="row-fluid">
-	    <div class="span12">
-	        <h3> OAuth info </h3>
-	            <table class="table table-bordered table-striped">
-	                <tr>
-	                    <td>
- 	   	                	<span
-		   	                	rel="popover"
-			   	                data-title="oauth_token"
-			   	                data-content="A JSON string that can be used when making requests to the Graph API. This is also known as a user access token."
-				   	              data-trigger="hover">
-					   	              Token
- 	   	                	</span>
- 	   	                </td>
-											<td>
-												<?php echo $token_field; ?>
-											</td>
-	                </tr>
-	                <tr>
-	                    <td>
-	                    	<span
-	                    		rel="popover"
-	                    		data-title="expires"
-	                    		data-content="A JSON number containing the Unix timestamp when the oauth_token expires."
-	                    		data-trigger="hover">
-	                    		Expires
-	                    	</span>
-	                    </td>
-	                    <td><?php echo $token_expiry .' '. $token_expiry_human;?> </td>
-	                </tr>
-	                <tr>
-	                    <td>
-	                    	<span
-	                    		rel="popover"
-	                    		data-title="user_id"
-	                    		data-content="A JSON string containing the User ID of the current user."
-	                    		data-trigger="hover">
-	                    			User ID
-	                    	</span>
-	                    </td>
-											<td>
-												<?php echo $user_field; ?>
-											</td>
-	                </tr>
-	            </table>
-	    </div>
-	</div>
-	<h4 class="italic"> Raw signed_request </h4>
-	<?php
-	echo('<pre><code>');
-	print_r($signed_request);
-	echo('</code></pre>');
-
-	?>
- 	<hr />
+			</div>
+			  <div class="row-fluid">
+		    <div class="span12">
+		        <h3> OAuth info </h3>
+		        <table class="table table-bordered table-striped">
+		            <tr>
+		                <td>
+		   	            	<span
+		     	            	rel="popover"
+		  	   	            data-title="oauth_token"
+		  	   	            data-content="A JSON string that can be used when making requests to the Graph API. This is also known as a user access token."
+		  		              data-trigger="hover">
+		  			              Token
+		   	            	</span>
+		   	            </td>
+		  			 		<td>
+		  			 			<?php echo $token_field; ?>
+		  			 		</td>
+		            </tr>
+		            <tr>
+		                <td>
+		                	<span
+		                		rel="popover"
+		                		data-title="expires"
+		                		data-content="A JSON number containing the Unix timestamp when the oauth_token expires."
+		                		data-trigger="hover">
+		                		Expires
+		                	</span>
+		                </td>
+		                <td><?php echo $token_expiry .' '. $token_expiry_human;?> </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                	<span
+		                		rel="popover"
+		                		data-title="user_id"
+		                		data-content="A JSON string containing the User ID of the current user."
+		                		data-trigger="hover">
+		                			User ID
+		                	</span>
+		                </td>
+		  			 		<td>
+		  			 			<?php echo $user_field; ?>
+		  			 		</td>
+		            </tr>
+		        </table>
+		    </div>
+		  </div>
+			  <div class="row-fluid">
+		  	<div class="span12">
+		  		<h4 class="italic"> Raw signed_request </h4>
+		  		<?php
+		  		echo('<pre class="prettyprint"><code>');
+		  		print_r($signed_request);
+		  		echo('</code></pre>');
+		  		
+		  		?>
+		  	</div>
+		  </div>
+			</div>
+			<div class="tab-pane" id="tab2">
+				<div class="row-fluid">
+					<div class="span12" id="explorer">
+						<h3> Graph API Explorer </h3>
+						<div class="row-fluid">
+							<div class="span12 controls controls-row control-group" id="explorer-form">
+								<form class="form-inline">
+									<div class="btn-group span1">
+										<button class="btn dropdown-toggle" data-toggle="dropdown" id="explorer-http-menu">
+											<span id="explorer-http-active">GET</span>
+											<span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu" id="explorer-dropdown">
+											<li>
+												<a href="#" id="explorer-dropdown-get">GET</a>
+											</li>
+											<li>
+												<a href="#" id="explorer-dropdown-post">POST</a>
+											</li>
+											<li>
+												<a href="#" id="explorer-dropdown-delete">DELETE</a>
+											</li>
+										</ul>
+									</div>
+									<input class="span10" type="text" placeholder="/" id="explorer-input">
+									<button class="btn btn-primary span1" id="explorer-submit">Submit</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr />
+				<div class="row-fluid" id="explorer-response-row">
+					<div class="span12" id="explorer-response-span">
+						<pre id="explorer-response" class="prettyprint">
+						</pre>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+	<hr />
 	<div class="row-fluid">
 		<div class="span6">
 			<ul class="nav nav-pills">

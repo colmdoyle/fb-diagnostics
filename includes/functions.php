@@ -70,6 +70,9 @@ function output_header ($root_url) {
   $head .= '<link href="'. $root_url . 'css/bootstrap.min.css" rel="stylesheet" media="screen">';
   $head .= '<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>';
   $head .= '<script src="'. $root_url . 'js/bootstrap.min.js"></script>';
+  $head .= '<link href="'. $root_url . 'css/prettify/prettify.css" type="text/css" rel="stylesheet" />';
+  $head .= '<script type="text/javascript" src="'. $root_url . '/js/prettify/prettify.js"></script>';
+  
   $head .= '<script src="'. $root_url . 'js/main.js"></script>';
   $head .= '<link rel="stylesheet" type="text/css" href="'. $root_url . 'css/screen.css" />';
 

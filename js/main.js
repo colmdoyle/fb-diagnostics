@@ -16,6 +16,10 @@ limitations under the License.
 
 
 $(document).ready(function () {
+  prettyPrint();
+  
+  var num_of_post_params = 0;
+
 	if ($("[rel=popover]").length) {
 		$("[rel=popover]").popover();
 	}
@@ -110,6 +114,77 @@ $(document).ready(function () {
 	
 	$('#clear_checkbox').click(function() {
 		$('#oauth_scope_form').find('input:checked').removeAttr('checked');
+	});
+	
+	$('#explorer-dropdown li a').click(function() {
+		if ($(this).html() == 'POST') {
+			$('#explorer').append('<div class="row-fluid"><div id="post-field-row" class="span11 offset1 controls"><a id="field-add" href="#"> Add a field </a></div></div>');
+			$('#field-add').on('click', function(event){
+				num_of_post_params++;
+				$('#post-field-row').append('<div class="controls-row param-pair" id="param-pair-'+num_of_post_params+'"><input class="span2 post-field" type="text" placeholder="name" name="name"><input class="span2 value post-field" type="text" placeholder="value" name="value"></div>');
+			});
+		} else {
+			$('#post-field-row').remove();
+		}
+		$('#explorer-http-active').text($(this).html());
+	});
+	
+	$('#explorer-input').focus(function() {
+		$('#explorer-form').removeClass('error');
+	})
+	
+	$('#explorer-submit').on('click', function(e) {
+				
+		var http_method = $('#explorer-http-active').html();
+		var path = $('#explorer-input').val();
+		
+		var param_pair_total = $(".param-pair").length;
+		var post_params = '{';
+		
+		$(".param-pair").each(function(index) {
+			name = $(this).children(":nth-child(1)").val();
+			value = $(this).children(":nth-child(2)").val();
+			
+			post_params += '"'+name+'":"'+value+'"';
+			
+			if (index === param_pair_total - 1) {
+			 post_params += '';
+			} else {
+			 post_params += ',';	
+			}
+			
+		});
+		post_params += '}';
+
+		params_object = $.parseJSON(post_params);
+		
+		if (path) {
+			if (path.charAt(0) != '/') {
+			  path = '/' + path;
+			}
+			
+			if (post_params.length > 3) {
+			  FB.api(path, http_method, params_object,
+			  function(response){
+			    console.log(response);
+			    $('#explorer-response').text(JSON.stringify(response, null, '\t'));
+			    $('#explorer-response').addClass('lang-js');
+			    prettyPrint();
+			  });
+			} else {
+			  FB.api(path, http_method,
+			  function(response){
+			    console.log(response);
+			    $('#explorer-response').text(JSON.stringify(response, null, '\t'));
+			    $('#explorer-response').addClass('lang-js');
+			    prettyPrint();
+			  });
+			}
+		} else {
+			$('#explorer-form').addClass('error');
+		} 
+		
+		e.preventDefault();
 	});
 });
 
