@@ -776,4 +776,10 @@ document.execCommand("BackgroundImageCache",false,true);
 }
 catch(e){
 }
-
+function recordOutboundLink(link, category, action) {
+try {
+var myTracker=_gat._getTrackerByName();
+_gaq.push(['myTracker._trackEvent', category , action ]);
+setTimeout('document.location = "' + link.href + '"', 100)
+}catch(err){}
+}
