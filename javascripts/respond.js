@@ -777,6 +777,7 @@ document.execCommand("BackgroundImageCache",false,true);
 catch(e){
 }
 function recordOutboundLink(link, category, action) {
+	console.log('outbound click');
 try {
 var myTracker=_gat._getTrackerByName();
 _gaq.push(['myTracker._trackEvent', category , action ]);
