@@ -82,6 +82,44 @@ if ($signed_request['user_id']){
     });
 
     FB.Canvas.setAutoGrow();
+    
+		FB.getLoginStatus(function(response) {
+			console.log(response);
+			if (response.status === 'connected') {
+				FB.api('/me?fields=name,picture', function(response) {
+					console.log(response);
+					$('#user-name-nav').html(response.name);
+					$('#user-login-control').prepend('<img src="'+response.picture.data.url+'" width="20" height="20" />');
+					$('#nav-bar-auth').remove();
+					$('#auth-dropdown').append('<li><a href="#" id="nav-bar-deauth">Deauth</a></li>');
+					$('#auth-dropdown').append('<li><a href="#" id="nav-bar-logout">Logout of FB</a></li>');
+					
+					$('#nav-bar-logout').on('click', function() {
+						console.log('blah');
+						FB.logout(function(response){
+							console.log(response);
+						});	
+					});
+	
+					$('#nav-bar-deauth').on('click', function() {
+						FB.api('/me/permissions', 'delete', function(response) {
+							console.log(response);
+							if (response == true) {
+								$('#user-name-nav').html('Logged Out');
+								$('#auth-dropdown').html('<li id="auth-link"><a tabindex="-1" href="https://www.facebook.com/dialog/oauth?client_id=<?php echo $config['AppId']; ?>&redirect_uri=<?php echo $config['CanvasUrl']; ?>" target="_blank">Login</a></li>');
+							}
+						});
+					});
+
+				});
+			} else if (response.status === 'not_authorized') {
+				$('#user-name-nav').html('Logged Out');
+				$('#auth-dropdown').html('<li id="auth-link"><a tabindex="-1" href="https://www.facebook.com/dialog/oauth?client_id=<?php echo $config['AppId']; ?>&redirect_uri=<?php echo $config['CanvasUrl']; ?>" target="_blank">Login</a></li>');
+			} else {
+				$('#user-nav-section').remove();
+			}
+		});
+
   };
 
   // Load the SDK's source Asynchronously
@@ -170,6 +208,20 @@ if ($signed_request['user_id']){
           </li>
         </ul>
       </li>
+    </ul>
+    <ul class="nav pull-right" id="user-nav-section">
+    	<li class="divider-vertical"></li>
+    	<li class="dropdown">
+    		<a href="#" class="dropdown-toggle" data-toggle="dropdown" id="user-login-control">
+    			<span id="user-name-nav">Loading</span>
+	    		<b class="caret"></b>
+    		</a>
+    		<ul class="dropdown-menu" id="auth-dropdown">
+	    		<li id="auth-link">
+	    			<a tabindex="-1" href="https://www.facebook.com/dialog/oauth?client_id=<?php echo $config['AppId']; ?>&redirect_uri=<?php echo $config['CanvasUrl']; ?>" id="nav-bar-auth" target="_blank">Login</a>
+	    		</li>
+    		</ul>
+    	</li>
     </ul>
   </div>
 </div>
