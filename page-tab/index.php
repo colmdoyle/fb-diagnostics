@@ -94,24 +94,51 @@ if ($signed_request['user_id']){
       cookie     : true, // set sessions cookies to allow your server to access the session?
       xfbml      : true  // parse XFBML tags on this page?
     });
-    
+
     FB.Canvas.setAutoGrow();
-    FB.getLoginStatus(function(response) {
-	    if (response.status === 'connected') {
-	    	// TODO Add Deauth button
-	     } else if (response.status === 'not_authorized') {
-	     	// TODO Add Auth button
-	     } else {
-	     	// TODO Add Auth button ?
-	      // the user isn't logged in to Facebook.
-	     }
-    });
     
+		FB.getLoginStatus(function(response) {
+			console.log(response);
+			if (response.status === 'connected') {
+				FB.api('/me?fields=name,picture', function(response) {
+					console.log(response);
+					$('#user-name-nav').html(response.name);
+					$('#user-login-control').prepend('<img src="'+response.picture.data.url+'" width="20" height="20" />');
+					$('#nav-bar-auth').remove();
+					$('#auth-dropdown').append('<li><a href="#" id="nav-bar-deauth">Deauth</a></li>');
+					$('#auth-dropdown').append('<li><a href="#" id="nav-bar-logout">Logout of FB</a></li>');
+					
+					$('#nav-bar-logout').on('click', function() {
+						console.log('blah');
+						FB.logout(function(response){
+							console.log(response);
+						});	
+					});
+	
+					$('#nav-bar-deauth').on('click', function() {
+						FB.api('/me/permissions', 'delete', function(response) {
+							console.log(response);
+							if (response == true) {
+								$('#user-name-nav').html('Logged Out');
+								$('#auth-dropdown').html('<li id="auth-link"><a tabindex="-1" href="https://www.facebook.com/dialog/oauth?client_id=<?php echo $config['AppId']; ?>&redirect_uri=<?php echo $config['CanvasUrl']; ?>" target="_blank">Login</a></li>');
+							}
+						});
+					});
+
+				});
+			} else if (response.status === 'not_authorized') {
+				$('#user-name-nav').html('Logged Out');
+				$('#auth-dropdown').html('<li id="auth-link"><a tabindex="-1" href="https://www.facebook.com/dialog/oauth?client_id=<?php echo $config['AppId']; ?>&redirect_uri=<?php echo $config['CanvasUrl']; ?>" target="_blank">Login</a></li>');
+			} else {
+				$('#user-nav-section').remove();
+			}
+		});
+
   };
 
   // Load the SDK's source Asynchronously
-  // Note that the debug version is being actively developed and might 
-  // contain some type checks that are overly strict. 
+  // Note that the debug version is being actively developed and might
+  // contain some type checks that are overly strict.
   // Please report such bugs using the bugs tool.
   (function(d, debug){
      var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
@@ -120,10 +147,6 @@ if ($signed_request['user_id']){
      js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
      ref.parentNode.insertBefore(js, ref);
    }(document, /*debug*/ false));
-<!-- TODO - Make this more dynamic -->
-if(self == top) {
-	window.location.replace("http://www.facebook.com/colmstestpage/app_120999667956026");
-}
 </script>
 <div class="container-fluid" id="content">
 <div class="navbar">
@@ -199,6 +222,20 @@ if(self == top) {
 	        </li>
 	      </ul>
 	    </li>
+    </ul>
+    <ul class="nav pull-right" id="user-nav-section">
+    	<li class="divider-vertical"></li>
+    	<li class="dropdown">
+    		<a href="#" class="dropdown-toggle" data-toggle="dropdown" id="user-login-control">
+    			<span id="user-name-nav">Loading</span>
+	    		<b class="caret"></b>
+    		</a>
+    		<ul class="dropdown-menu" id="auth-dropdown">
+	    		<li id="auth-link">
+	    			<a tabindex="-1" href="https://www.facebook.com/dialog/oauth?client_id=<?php echo $config['AppId']; ?>&redirect_uri=<?php echo $config['CanvasUrl']; ?>" id="nav-bar-auth" target="_blank">Login</a>
+	    		</li>
+    		</ul>
+    	</li>
     </ul>
   </div>
 </div>
