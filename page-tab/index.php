@@ -96,7 +96,7 @@ if ($signed_request['user_id']){
     });
 
     FB.Canvas.setAutoGrow();
-    
+
 		FB.getLoginStatus(function(response) {
 			console.log(response);
 			if (response.status === 'connected') {
@@ -107,14 +107,14 @@ if ($signed_request['user_id']){
 					$('#nav-bar-auth').remove();
 					$('#auth-dropdown').append('<li><a href="#" id="nav-bar-deauth">Deauth</a></li>');
 					$('#auth-dropdown').append('<li><a href="#" id="nav-bar-logout">Logout of FB</a></li>');
-					
+
 					$('#nav-bar-logout').on('click', function() {
 						console.log('blah');
 						FB.logout(function(response){
 							console.log(response);
-						});	
+						});
 					});
-	
+
 					$('#nav-bar-deauth').on('click', function() {
 						FB.api('/me/permissions', 'delete', function(response) {
 							console.log(response);
@@ -257,10 +257,10 @@ if ($signed_request['user_id']){
 	        <table class="table table-bordered table-striped">
 	            <tr>
 	                <td>
-	                	<span 
-	                		rel="popover" 
+	                	<span
+	                		rel="popover"
 	                		data-title="algorithm"
-	                		data-content="A JSON string containing the mechanism used to sign the request" 
+	                		data-content="A JSON string containing the mechanism used to sign the request"
 	                		data-trigger="hover">
 	                		Encryption
 	                	</span>
@@ -269,10 +269,10 @@ if ($signed_request['user_id']){
 	            </tr>
 	            <tr>
 	                <td>
-	                	<span 
-	                		rel="popover" 
+	                	<span
+	                		rel="popover"
 	                		data-title="issued_at"
-	                		data-content="A JSON number containing the Unix timestamp when the request was signed" 
+	                		data-content="A JSON number containing the Unix timestamp when the request was signed"
 	                		data-trigger="hover">
 	                		Issue Time
 	                	</span>
@@ -281,10 +281,10 @@ if ($signed_request['user_id']){
 	            </tr>
 	            <tr>
 	                <td>
-	                	<span 
-	                		rel="popover" 
+	                	<span
+	                		rel="popover"
 	                		data-title="app_data"
-	                		data-content="A JSON string containing the content of the app_data query string parameter which may be passed if the app is being loaded within a Page Tab" 
+	                		data-content="A JSON string containing the content of the app_data query string parameter which may be passed if the app is being loaded within a Page Tab"
 	                		data-trigger="hover">
 	                		App Data
 	                	</span>
@@ -307,7 +307,7 @@ if ($signed_request['user_id']){
 			               </span>
 			            </td>
 									<td>
-									<a 
+									<a
 										href="<?php echo $config['graph-explorer'].$signed_request['page']['id']?>"
 										target="_blank">
 											<?php echo $signed_request['page']['id'];?>
@@ -315,23 +315,23 @@ if ($signed_request['user_id']){
 									</td>
 	            </tr>
 	            <tr>
-	                <td> 	                	
-	                	<span 
-	                		rel="popover" 
+	                <td>
+	                	<span
+	                		rel="popover"
 	                		data-title="['page']['name']"
-	                		data-content="A JSON string containing the name of the page that loaded the app" 
+	                		data-content="A JSON string containing the name of the page that loaded the app"
 	                		data-trigger="hover">
-		                		Page Name 
+		                		Page Name
 	                	</span>
 	                </td>
 	                <td> <?php echo $page_name['name']; ?> </td>
 	            </tr>
 	            <tr>
-	                <td> 
-	                	<span 
-	                		rel="popover" 
+	                <td>
+	                	<span
+	                		rel="popover"
 	                		data-title="['page']['liked']"
-	                		data-content="A JSON boolean of whether the current user likes the page that loaded the app" 
+	                		data-content="A JSON boolean of whether the current user likes the page that loaded the app"
 	                		data-trigger="hover">
 		                		Do you like?
 	                	</span>
@@ -340,10 +340,10 @@ if ($signed_request['user_id']){
 	            </tr>
 	            <tr>
 	                <td>
- 	                	<span 
-	                		rel="popover" 
+ 	                	<span
+	                		rel="popover"
 	                		data-title="['page']['admin']"
-	                		data-content="A JSON boolean of whether the current user admins the page that loaded the app" 
+	                		data-content="A JSON boolean of whether the current user admins the page that loaded the app"
 	                		data-trigger="hover">
 		                		Are you an admin?
  	                	</span>
@@ -359,10 +359,10 @@ if ($signed_request['user_id']){
 	            <table class="table table-bordered table-striped">
 	                <tr>
 	                    <td>
-	   	                	<span 
-		   	                	rel="popover" 
+	   	                	<span
+		   	                	rel="popover"
 			   	                data-title="['user']['country']"
-			   	                data-content="A JSON string representing the country of the viewing user" 
+			   	                data-content="A JSON string representing the country of the viewing user"
 				   	              data-trigger="hover">
 					   	            	Country
 	   	                	</span>
@@ -371,10 +371,10 @@ if ($signed_request['user_id']){
 	                </tr>
 	                <tr>
 	                    <td>
- 	   	                	<span 
-		   	                	rel="popover" 
+ 	   	                	<span
+		   	                	rel="popover"
 			   	                data-title="['user']['locale']"
-			   	                data-content="A JSON string representing the locale of the viewing user" 
+			   	                data-content="A JSON string representing the locale of the viewing user"
 				   	              data-trigger="hover">
 					   	              Locale
  	   	                	</span>
@@ -400,10 +400,10 @@ if ($signed_request['user_id']){
 	            <table class="table table-bordered table-striped">
 	                <tr>
 	                    <td>
- 	   	                	<span 
-		   	                	rel="popover" 
+ 	   	                	<span
+		   	                	rel="popover"
 			   	                data-title="oauth_token"
-			   	                data-content="A JSON string that can be used when making requests to the Graph API. This is also known as a user access token." 
+			   	                data-content="A JSON string that can be used when making requests to the Graph API. This is also known as a user access token."
 				   	              data-trigger="hover">
 					   	              Token
  	   	                	</span>
@@ -443,10 +443,10 @@ if ($signed_request['user_id']){
 	</div>
 	<h4 class="italic"> Raw signed_request </h4>
 	<?php
-	echo('<pre><code>');
+	echo('<pre class="prettyprint"><code>');
 	print_r($signed_request);
 	echo('</code></pre>');
-	
+
 	?>
  	<hr />
 	<div class="row-fluid">
@@ -462,8 +462,8 @@ if ($signed_request['user_id']){
 		</div>
 	</div>
 </div>
-<!-- 
-	Feed Modal 
+<!--
+	Feed Modal
 	===========================
 -->
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -482,8 +482,8 @@ if ($signed_request['user_id']){
     <button class="btn btn-primary" id="publish_submit">Post to Facebook</button>
   </div>
 </div>
-<!-- 
-	OAuth Modal 
+<!--
+	OAuth Modal
 	==================
 -->
 <div id="oauth-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="oauth-modalLabel" aria-hidden="true">
@@ -696,7 +696,7 @@ if ($signed_request['user_id']){
 				    <input type="checkbox" id="friends_work_history" value="friends_work_history"> friends_work_history
 				  </label>
 			  	</div>
-			  </form>			  
+			  </form>
 		  </div>
 		  <div class="tab-pane" id="extended-data">
 			  <form class="form container-fluid">
@@ -793,7 +793,7 @@ if ($signed_request['user_id']){
 					    <input type="checkbox" id="xmpp_login" value="xmpp_login"> xmpp_login
 					  </label>
 			  	</div>
-			  </form>	  
+			  </form>
 		  </div>
 		</div>
   </div>
@@ -803,8 +803,8 @@ if ($signed_request['user_id']){
     <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
   </div>
 </div>
-<!-- 
-	Privacy Modal 
+<!--
+	Privacy Modal
 	========================
 -->
 <div id="privacyModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="privacyModalLabel" aria-hidden="true">
