@@ -388,7 +388,7 @@ if ($signed_request['user_id']){
 							<div class="span12 controls controls-row control-group" id="explorer-form">
 								<form class="form-inline">
 									<div class="btn-group span1">
-										<button class="btn dropdown-toggle" data-toggle="dropdown" id="explorer-http-menu">
+										<button class="btn dropdown-toggle" data-toggle="dropdown" id="explorer-http-menu" type="button">
 											<span id="explorer-http-active">GET</span>
 											<span class="caret"></span>
 										</button>
