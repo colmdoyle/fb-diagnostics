@@ -18,6 +18,7 @@ include(__DIR__ . '/../includes/__init__.php');
 
 echo output_header($config['RootUrl']);
 
+// SIGNED REQUEST PROCESSING 
 $signed_request = parse_signed_request($_REQUEST['signed_request'], $config['AppSecret']);
 $page_name = json_decode(curl_call('https://graph.facebook.com/'.$signed_request['page']['id']), true);
 $user_name = json_decode(curl_call('https://graph.facebook.com/'.$signed_request['user_id']), true);
@@ -65,6 +66,50 @@ if ($signed_request['user_id']){
 } else {
     $user_field = 'No user ID provided';
 }
+// /SIGNED REQUEST PROCESSING
+
+// LIVE STATUS PROCESSING
+
+$live_status = json_decode(curl_call('https://www.facebook.com/feeds/api_status.php'), true);
+
+// Is Facebook pushing code?
+if ($live_status['push']) {
+	$push_status = $live_status['push']['status'];	
+} else {
+	$push_status = 'Unknown';
+}
+
+// What is the status of the API?
+if ($live_status['current']) {
+
+	$health = $live_status['current']['health'];
+	
+	switch($health) {
+		case 0:
+			$health_title = '<p class="text-info">Neutral</p>';
+			break;
+		case 1:
+			$health_title = '<p class="text-success">Healthy</p>';
+			break;
+		case 2:
+			$health_title = '<p class="text-warning">Under Investigation</p>';
+			break;
+		case 3:
+			$health_title = '<p class="text-error">Service Disruption</p>';
+			break;
+		default:
+			$health_title = '<p class="text-info">Unknown</p>';
+			break;
+	}
+	
+	$health_status_msg = $live_status['current']['subject'];
+	
+} else {
+	$health_title = '<p class="text-info">Unknown</p>';
+	$health_status_msg = $live_status['current']['subject'];
+}
+
+// /LIVE STATUS PROCESSING
 
 ?>
 
@@ -245,6 +290,15 @@ if ($signed_request['user_id']){
 				  <li class="active"><a href="#tab1" data-toggle="tab">Signed Request</a></li>
 				  <li><a href="#tab2" data-toggle="tab">Explorer</a></li>
 				</ul>
+				<div class="well">
+					<p class="lead">Platform Status</p>
+					<strong>State</strong>
+					<?php echo $health_title; ?>
+					<strong>Message</strong>
+					<p><?php echo $health_status_msg; ?></p>
+					<strong> Push </strong>
+					<p><?php echo $push_status; ?></p>
+				</div>
 		</div>
 		<!-- !main-content -->
 		<div class="span10 tab-content" id="content-pane">
