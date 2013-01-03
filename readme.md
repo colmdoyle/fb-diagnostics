@@ -6,7 +6,7 @@ It doesn't attempt to skin itself as a full app. It's just a dashboard of inform
 
 ## Examples 
 
-You can see it running as a Page Tab [here](https://www.facebook.com/colmstestpage/app_120999667956026)
+You can see it running as a Page Tab [here](https://www.facebook.com/DiagnosticsApp/app_120999667956026)
 
 You can see it running as a Canvas App [here](https://apps.facebook.com/diagnostics-app)
 
