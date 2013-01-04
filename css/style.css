@@ -1,0 +1,11 @@
+html {
+	background: -webkit-linear-gradient(#f1f1f1 42.72%, #ffffff 100%) !important;
+	height: 100%;
+}
+
+body {
+	padding-top: 20px;
+}
+header {
+	text-align: center;
+}

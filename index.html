@@ -1,107 +1,107 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>FB Diagnostics by colmdoyle</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!-- FB OG Data -->
-    <meta property="fb:app_id" content="120999667956026" />
-    <meta property="og:title" content="FB Diagnostics App" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="http://colmdoyle.github.com/fb-diagnostics/images/logov1.png" />
-    <meta property="og:url" content="http://colmdoyle.github.com/fb-diagnostics/" />
-    <meta property="og:description" content="Facebook App Diagnostics at a glance" />
-  </head>
-  <body>
-  		<div id="fb-root"></div>
-      <script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=120999667956026";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));</script>
-      <div id="header">
-        <nav>
-          <li class="fork"><a onclick="recordOutboundLink(this, 'Outbound Links', 'GitHub Repo');return false;" href="https://github.com/colmdoyle/fb-diagnostics">View On GitHub</a></li>
-          <li class="downloads"><a onclick="recordOutboundLink(this, 'Outbound Links', 'Zip');return false;" href="https://github.com/colmdoyle/fb-diagnostics/zipball/master">ZIP</a></li>
-          <li class="downloads"><a onclick="recordOutboundLink(this, 'Outbound Links', 'Tarball');return false;" href="https://github.com/colmdoyle/fb-diagnostics/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
-      </div><!-- end header -->
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+	<title></title>
+	<meta name="description" content="">
+  <meta name="keywords" content="">
+	<meta name="robots" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	
+	<!-- Bootstrap CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+  <link href="css/style.css" rel="stylesheet" media="screen">
+  <!-- FB OG Data -->
+  <meta property="fb:app_id" content="120999667956026" />
+  <meta property="og:title" content="FB Diagnostics App" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://colmdoyle.github.com/fb-diagnostics/images/logov1.png" />
+  <meta property="og:url" content="http://colmdoyle.github.com/fb-diagnostics/" />
+  <meta property="og:description" content="Facebook App Diagnostics at a glance" />
 
-    <div class="wrapper">
+</head>
+<body>
+<!-- FB JS SDK -->
+<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+  	var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=120999667956026";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
 
-      <section>
-        <div id="title">
-          <h1>FB Diagnostics</h1>
-          <p>Facebook App Diagnostics at a glance</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/colmdoyle">colmdoyle</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
-        </div>
-        <p><div class="fb-like" data-href="http://colmdoyle.github.com/fb-diagnostics/" data-send="true" data-width="450" data-show-faces="true" data-colorscheme="dark"></div></p>
-        <h1>FB Diagnostics</h1>
-
-<p>For the sake of debugging a problem, sometimes it's useful to have an app that has an "at a glance" output of various different Facebook features / endpoints. This is just such a tool.</p>
-
-<p>It doesn't attempt to skin itself as a full app. It's just a dashboard of information and one click access to various <a href="https://developers.facebook.com/docs/reference/dialogs/">Facebook Dialogs</a> and other publishing endpoints, like <a href="https://developers.facebook.com/docs/concepts/opengraph/actions/">OG Actions</a> and <a href="https://developers.facebook.com/docs/reference/api/user/#feed">/feed</a></p>
-
-<h3>Graph API Explorer</h3>
-<p> FB Diagnostics also includes a fully functional version of the <a href="https://developers.facebook.com/tools/explorer/" target="_blank">Graph API Explorer</a>. You can use it to test any API call, using your own App config and see the calls on your own infrastructure.</p>
-
-<p><img src="images/screenshots/explorer_get.png" alt="explorer_get" width="467" height="282" />
-</p>
-<h2>Examples</h2>
-
-<p>You can see it running as a Page Tab <a href="https://www.facebook.com/DiagnosticsApp/app_120999667956026">here</a></p>
-
-<p>You can see it running as a Canvas App <a href="https://apps.facebook.com/diagnostics-app">here</a></p>
-
-<h2>Screenshots</h2>
-
-<p><img src="images/screenshots/screenshot1.png" alt="screenshot1" width="650" height="247" /></p>
-
-<p><img src="images/screenshots/screenshot2.png" alt="screenshot1" width="613" height="359" /></p>
-
-<h1>License</h1>
-
-<p>Copyright 2012 Colm Doyle</p>
-
-<p>Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
-
-<p>Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.</p>
-      </section>
-
+<div class="container">
+	<header class="row">
+		<img src="img/logov1.png" alt="FB Diagnostics Logo" class="img-rounded" />
+		<h1>FB Diagnostics</h1>
+		<p class="muted">Your one stop Facebook API diagnostics tool</p>
+		<div class="social-icons span12">
+			<!-- Twitter -->
+			<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://colmdoyle.github.com/fb-diagnostics/" data-text="Facebook API diagnostics tool" data-via="colmisainmdom">Tweet</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			<!-- GitHub -->
+			<iframe src="http://ghbtns.com/github-btn.html?user=colmdoyle&amp;repo=fb-diagnostics&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+			<!-- Facebook -->
+			<div class="fb-like" data-href="http://colmdoyle.github.com/fb-diagnostics/" data-send="false" data-width="90" data-show-faces="false" data-layout="button_count"></div>
+		</div>
+	</header>
+	<hr>
+	<section class="row" id="open-para">
+		<div class="span8">
+			<h2>At a glance diagnostics</h2>
+			<p>For the sake of debugging a problem, sometimes it's useful to have an app that has an "at a glance" output of various different Facebook features / endpoints. This is just such a tool.</p>
+			<p>It doesn't attempt to skin itself as a full app. It's just a dashboard of information and one click access to various <a href="https://developers.facebook.com/docs/reference/dialogs/">Facebook Dialogs</a> and other publishing endpoints, like <a href="https://developers.facebook.com/docs/concepts/opengraph/actions/">OG Actions</a> and <a href="https://developers.facebook.com/docs/reference/api/user/#feed">/feed</a>. It also displays the latest status of the API, <a href="https://developers.facebook.com/live_status" target="_blank">pulled directly</a> from Facebook.</p>
+			<p> Check it out now, running on either a <a href="https://www.facebook.com/DiagnosticsApp/app_120999667956026" target="_blank">page tab</a> or a <a href="https://apps.facebook.com/diagnostics-app/" target="_blank">canvas app</a>. A standalone site using Login with Facebook is on the roadmap. </p>
+			<p>
+				<a href="https://github.com/colmdoyle/fb-diagnostics/" class="btn btn-primary pull-right" target="_blank">Get the source from GitHub</a>
+		</div>
+		<div class="span4">
+			<img src="img/screenshots/glance.png" alt="Screenshot of Landing Page" class="img-rounded"> 	
+		</div>
+	</section>
+	<section class="row" id="explorer">
+		<div class="span4">
+			<img src="img/screenshots/explorer_get.png" alt="Graph API Explorer" class="img-rounded"> 	
+		</div>
+		<div class="span8">
+			<h2>Graph API Explorer, but local...</h2>
+			<p>Facebook provides a <a href="https://developers.facebook.com/tools/explorer/?method=GET&path=me" target="_blank">tool</a> which allows you to make arbitrary calls against the Graph API. But to help you eliminate any possible errors in your infrastructure, Diagnostics comes with a fully functional version of that tool, so that you can makes those calls from your own systems, without having to write a line of code.</p>
+		</div>
+	</section>
+	<section class="row" id="signed-request">
+		<div class="span8">
+			<h2>Analyse Signed Requests</h2>
+			<p>Page Tab &amp; Canvas developers are provided with a wealth of information via a <code>POST</code> when the user initially lands on your app. The initial view of Diagnostics provides a clean and simple display of what Facebook is telling you, with full explanations of each field, to help you plan your landing experience with real data.</p>
+		</div>
+		<div class="span4">
+			<img src="img/screenshots/signed_request.png" alt="Screenshot of Signed Request" class="img-rounded"> 	
+		</div>
+	</section>
+	<section class="row" id="dialogs">
+		<div class="span4">
+			<img src="img/screenshots/dialogs.png" alt="Screenshot of Dialogs menu" class="img-rounded"> 	
+		</div>
+		<div class="span8">
+			<h2>One click Dialogs</h2>
+			<p>Invoke the many available <a href="https://developers.facebook.com/docs/reference/dialogs/" target="_blank">dialogs</a> from the handy dropdown menu. Responses are printed back to the screen to test your JS.</p>
+		</div>
+	</section>
+	<hr>
+	<footer class="row">
+    <div class="span6 muted">
+    	<p>
+    		Built by <a href="https://github.com/colmdoyle">@colmdoyle</a>
+    	</p>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-              <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-34309270-2");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
-
-  </body>
+    <div class="span6">
+    	<p class="pull-right muted">
+    		Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>.
+    	</p>
+	  </div>
+	</footer>
+</div>
+</body>
 </html>
