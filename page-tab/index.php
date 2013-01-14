@@ -212,7 +212,7 @@ if ($signed_request['user_id']){
 	      <ul class="dropdown-menu">
 	        <li>
 	        	<a tabindex="-1" href="<?php echo $config['CanvasUrl']; ?>" target="_blank">
-	        		<i class="icon-th-large"></i> Canvas
+	        		<i class="icon-picture"></i> Canvas
 	        	</a>
 	        </li>
 	        <li>
