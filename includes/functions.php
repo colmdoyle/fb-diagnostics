@@ -67,6 +67,7 @@ function output_header ($root_url) {
   $head .= '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>';
 	$head .= '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />';
   $head .= '<link href="'. $root_url . 'css/bootstrap.min.css" rel="stylesheet" media="screen">';
+  $head .= '<link href="'. $root_url . 'css/font-awesome.min.css" rel="stylesheet" media="screen">';
   $head .= '<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>';
   $head .= '<script src="'. $root_url . 'js/bootstrap.min.js"></script>';
   $head .= '<link href="'. $root_url . 'css/prettify/prettify.css" type="text/css" rel="stylesheet" />';
