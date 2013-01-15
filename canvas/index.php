@@ -59,6 +59,16 @@ if ($signed_request['expires']){
     $token_expiry_human = '';
 }
 
+if ($signed_request['issued_at']){
+    $token_issue = $signed_request['issued_at'];
+    if (is_int($token_issue)) {
+	    $token_issue_human = '(' .date("M j Y, Hi e", $token_issue). ')';
+    }
+} else {
+    $token_issue = 'No issue time provided';
+    $token_issue_human = '';
+}
+
 if ($signed_request['user_id']){
     $user_id = $signed_request['user_id'];
     $user_name = json_decode(curl_call('https://graph.facebook.com/'.$signed_request['user_id']), true);
@@ -329,7 +339,7 @@ if ($live_status['current']) {
 	                		Issue Time
 	                	</span>
 	                </td>
-	                <td><?php echo $signed_request['issued_at'];?></td>
+	                <td><?php echo $token_issue .' '. $token_issue_human;?></td>
 	            </tr>
 	        </table>
 	    </div>
