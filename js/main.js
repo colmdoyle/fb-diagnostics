@@ -134,7 +134,7 @@ $(document).ready(function () {
 	})
 	
 	$('#explorer-submit').on('click', function(e) {
-				
+			
 		var http_method = $('#explorer-http-active').html();
 		var path = $('#explorer-input').val();
 		
@@ -159,6 +159,9 @@ $(document).ready(function () {
 		params_object = $.parseJSON(post_params);
 		
 		if (path) {
+	    $('#explorer-response').addClass('center-text');
+			$('#explorer-response').html('<i class="icon-spinner icon-spin icon-2x loading-indicator"></i>');	
+		
 			if (path.charAt(0) != '/') {
 			  path = '/' + path;
 			}
@@ -167,6 +170,7 @@ $(document).ready(function () {
 			  FB.api(path, http_method, params_object,
 			  function(response){
 			    console.log(response);
+    	    $('#explorer-response').removeClass('center-text');
 			    $('#explorer-response').text(JSON.stringify(response, null, '\t'));
 			    $('#explorer-response').addClass('lang-js');
 			    prettyPrint();
@@ -175,6 +179,7 @@ $(document).ready(function () {
 			  FB.api(path, http_method,
 			  function(response){
 			    console.log(response);
+    	    $('#explorer-response').removeClass('center-text');
 			    $('#explorer-response').text(JSON.stringify(response, null, '\t'));
 			    $('#explorer-response').addClass('lang-js');
 			    prettyPrint();
