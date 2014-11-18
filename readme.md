@@ -1,3 +1,5 @@
+# This project is no longer maintained. It is unlikely to work against recent versions of the Facebook API.
+
 # FB Diagnostics
 
 For the sake of debugging a problem, sometimes it's useful to have an app that has an "at a glance" output of various different Facebook features / endpoints. This is just such a tool.
